@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -32,6 +32,7 @@ public class GameControllerScript : MonoBehaviour
     public Text scoreText;
     public Button startButton;
     public GameObject menu;
+    public Slider hpSlider;
 
     [Header("Main Menu")]
     public Text mainTitleText;
@@ -124,6 +125,14 @@ public class GameControllerScript : MonoBehaviour
         resultSavedThisRound = false;
         SetUiState(GameUiState.Playing);
         ShowControlHint();
+
+        // Назначаем HP бар игроку
+        PLayerScript player = FindObjectOfType<PLayerScript>();
+        if (player != null)
+        {
+            player.hpBar = hpSlider;
+            player.ResetPlayer();
+        }
     }
 
     public void ShowPause()
@@ -229,6 +238,7 @@ public class GameControllerScript : MonoBehaviour
     void StyleUi()
     {
         StyleScoreText();
+        StyleHpBar();
         StyleMainMenu();
         StyleOverlay(pausePanel);
         StyleOverlay(gameOverPanel);
@@ -262,6 +272,45 @@ public class GameControllerScript : MonoBehaviour
         scoreText.horizontalOverflow = HorizontalWrapMode.Overflow;
         scoreText.verticalOverflow = VerticalWrapMode.Overflow;
         AddTextShadow(scoreText, new Color(0f, 0f, 0f, 0.7f), new Vector2(2f, -2f));
+    }
+
+    void StyleHpBar()
+    {
+        if (hpSlider == null)
+        {
+            return;
+        }
+
+        RectTransform rectTransform = hpSlider.GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            rectTransform.anchorMin = new Vector2(1f, 0f);
+            rectTransform.anchorMax = new Vector2(1f, 0f);
+            rectTransform.pivot = new Vector2(1f, 0f);
+            rectTransform.anchoredPosition = new Vector2(-24f, 20f);
+            rectTransform.sizeDelta = new Vector2(200f, 30f);
+        }
+
+        Image backgroundImage = hpSlider.transform.Find("Background")?.GetComponent<Image>();
+        if (backgroundImage != null)
+        {
+            backgroundImage.color = new Color(0.1f, 0.1f, 0.1f, 0.8f);
+        }
+
+        Image fillImage = hpSlider.fillRect?.GetComponent<Image>();
+        if (fillImage != null)
+        {
+            fillImage.color = Color.red;
+        }
+
+        // Hide handle for HP bar
+        if (hpSlider.handleRect != null)
+        {
+            hpSlider.handleRect.gameObject.SetActive(false);
+        }
+
+        hpSlider.interactable = false;
+        hpSlider.transition = Selectable.Transition.None;
     }
 
     void StyleMainMenu()
@@ -594,6 +643,11 @@ public class GameControllerScript : MonoBehaviour
         SetPanelActive(gameOverPanel, state == GameUiState.GameOver);
         SetPanelActive(victoryPanel, state == GameUiState.Victory);
 
+        if (hpSlider != null)
+        {
+            hpSlider.gameObject.SetActive(state == GameUiState.Playing || state == GameUiState.Paused);
+        }
+
         if (state != GameUiState.Playing)
         {
             HideControlHint();
@@ -772,6 +826,11 @@ public class GameControllerScript : MonoBehaviour
         if (canvas == null)
         {
             return;
+        }
+
+        if (hpSlider == null)
+        {
+            hpSlider = CreateHpBar(canvas.transform);
         }
 
         if (volumeSlider == null && menu != null)
@@ -986,5 +1045,36 @@ public class GameControllerScript : MonoBehaviour
         rectTransform.anchorMax = Vector2.one;
         rectTransform.offsetMin = Vector2.zero;
         rectTransform.offsetMax = Vector2.zero;
+    }
+
+    Slider CreateHpBar(Transform parent)
+    {
+        GameObject sliderObject = CreateUiObject("HpBar", parent);
+        RectTransform sliderTransform = sliderObject.GetComponent<RectTransform>();
+
+        Slider slider = sliderObject.AddComponent<Slider>();
+        slider.minValue = 0f;
+        slider.maxValue = 1f;
+        slider.value = 1f;
+        slider.wholeNumbers = false;
+
+        Image background = CreateImage(sliderObject.transform, "Background", new Color(0.1f, 0.1f, 0.1f, 0.8f));
+        StretchToParent(background.rectTransform);
+
+        RectTransform fillArea = CreateUiObject("Fill Area", sliderObject.transform).GetComponent<RectTransform>();
+        StretchToParent(fillArea);
+        fillArea.offsetMin = new Vector2(2f, 2f);
+        fillArea.offsetMax = new Vector2(-2f, -2f);
+
+        Image fill = CreateImage(fillArea, "Fill", Color.red);
+        StretchToParent(fill.rectTransform);
+
+        slider.fillRect = fill.rectTransform;
+        slider.interactable = false;
+        slider.transition = Selectable.Transition.None;
+
+        sliderObject.SetActive(false);
+
+        return slider;
     }
 }

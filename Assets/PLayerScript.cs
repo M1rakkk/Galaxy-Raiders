@@ -17,6 +17,9 @@ public class PLayerScript : MonoBehaviour
     public float shotDelay; //задержка по времени выстрела
     public int maxShieldSize; //размер щита
     public Text text; //текст
+    public Slider hpBar; //шкала здоровья
+    public int maxHealth = 100; //максимальное здоровье
+    int currentHealth; //текущее здоровье
     float nextShotTime; //время основного выстрела
     float nextShotSmallTime; //время бокового выстрела
     Rigidbody playerShip; //объект корабля
@@ -30,6 +33,8 @@ public class PLayerScript : MonoBehaviour
         playerShip = GetComponent<Rigidbody>();
         startPosition = transform.position;
         startRotation = transform.rotation;
+        currentHealth = maxHealth;
+        UpdateHpBar();
     }
 
     // Update is called once per frame
@@ -69,13 +74,11 @@ public class PLayerScript : MonoBehaviour
         //Отсутствие взаимодействия
         if (other.tag == "GameBoundary" || other.tag == "LazerShot")
             return;
-        //Уничтожение выстрела
-        if (other.tag == "LazerEnemyShot")
-            Destroy(other.gameObject);
+
         //Если подобрали бонус
         if (other.tag == "PowerUp")
         {
-            hp ++;
+            hp++;
             //Если не были установлены щиты, то включаем их 
             if (hp == 1)
             {
@@ -83,21 +86,47 @@ public class PLayerScript : MonoBehaviour
             }
             return;
         }
-        hp--;
-        //Если были щиты, то выключаем их
-        if (hp == 0)
-        {
-            SetShieldScale(0, 0);
+
+        //Уничтожение выстрела противника при попадании
+        if (other.tag == "LazerEnemyShot")
             Destroy(other.gameObject);
+        else if (other.tag == "Enemy" || other.tag == "Asteroid")
+            Destroy(other.gameObject);
+
+        //Если были щиты, то они поглощают урон
+        if (hp > 0)
+        {
+            hp--;
+            if (hp == 0)
+            {
+                SetShieldScale(0, 0);
+            }
             return;
         }
-        //Если жизни закончились
-        if (hp < 0)
+
+        //Если щитов нет, получаем урон
+        TakeDamage(10);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        UpdateHpBar();
+
+        if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Instantiate(playerExplosion, transform.position, Quaternion.identity);
-            Destroy(other.gameObject);
             GameControllerScript.instance.ShowGameOver(gameObject);
             gameObject.SetActive(false);
+        }
+    }
+
+    void UpdateHpBar()
+    {
+        if (hpBar != null)
+        {
+            hpBar.value = (float)currentHealth / maxHealth;
         }
     }
 
@@ -110,6 +139,8 @@ public class PLayerScript : MonoBehaviour
     {
         gameObject.SetActive(true);
         hp = 0;
+        currentHealth = maxHealth;
+        UpdateHpBar();
 
         if (playerShip == null)
         {
