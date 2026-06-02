@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpecularBlue
+  m_Name: MedKit_Material
   m_Shader: {fileID: 3, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -26,5 +26,5 @@ Material:
     m_Floats:
     - _Shininess: 0.703
     m_Colors:
-    - _Color: {r: 0.7830189, g: 0.06278926, b: 0.68753785, a: 1}
+    - _Color: {r: 0.24478449, g: 0.764151, b: 0.16941082, a: 1}
     - _SpecColor: {r: 1, g: 0.9292453, b: 0.9292453, a: 1}

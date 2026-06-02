@@ -87,6 +87,13 @@ public class PLayerScript : MonoBehaviour
             return;
         }
 
+        //Если подобрали аптечку
+        if (other.tag == "MedKit")
+        {
+            Heal(20);
+            return;
+        }
+
         //Уничтожение выстрела противника при попадании
         if (other.tag == "LazerEnemyShot")
             Destroy(other.gameObject);
@@ -120,6 +127,16 @@ public class PLayerScript : MonoBehaviour
             GameControllerScript.instance.ShowGameOver(gameObject);
             gameObject.SetActive(false);
         }
+    }
+
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        UpdateHpBar();
     }
 
     void UpdateHpBar()

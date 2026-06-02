@@ -14,6 +14,7 @@ TagManager:
   - LazerEnemyShot
   - PowerUp
   - Shield
+  - MedKit
   layers:
   - Default
   - TransparentFX

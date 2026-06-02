@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System;
 
@@ -7,6 +7,7 @@ public class EmitterScript : MonoBehaviour
     public GameObject[] asteroids; //список астероидов
     public GameObject enemyShip; //вражеский корабль
     public GameObject powerUp; //бонус
+    public GameObject medKit; //аптечка
     public Text text; //текст
     public float minDelay, maxDelay; //границы задержки времени появления вражеских объектов
     public int minX, maxX, minZ, maxZ; //границы области появления бонусов
@@ -37,7 +38,14 @@ public class EmitterScript : MonoBehaviour
         //Условие появления бонуса
         if (Time.time > nextAppearTime)
         {
-            Instantiate(powerUp, new Vector3(UnityEngine.Random.Range(minX, maxX), 0, UnityEngine.Random.Range(minZ, maxZ)), Quaternion.identity);
+            choice = UnityEngine.Random.Range(0, 2);
+            if (choice == 0)
+                Instantiate(powerUp, new Vector3(UnityEngine.Random.Range(minX, maxX), 0, UnityEngine.Random.Range(minZ, maxZ)), Quaternion.identity);
+            else if (medKit != null)
+                Instantiate(medKit, new Vector3(UnityEngine.Random.Range(minX, maxX), 0, UnityEngine.Random.Range(minZ, maxZ)), Quaternion.identity);
+            else
+                Instantiate(powerUp, new Vector3(UnityEngine.Random.Range(minX, maxX), 0, UnityEngine.Random.Range(minZ, maxZ)), Quaternion.identity);
+
             nextAppearTime = Time.time + delayTime;
         }
         // else
