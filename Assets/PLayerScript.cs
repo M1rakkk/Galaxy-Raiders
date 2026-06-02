@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PLayerScript : MonoBehaviour
 {
+    [Header("Revive")]
+    [SerializeField] float reviveInvulnerabilityDuration = 1.5f;
+
     public float speed; //текущая скорость
     public float tilt; //текущий наклон
     public float xMin, xMax, zMin, zMax; //границы области движения корабля
@@ -23,6 +26,9 @@ public class PLayerScript : MonoBehaviour
     Vector3 startPosition; //начальная позиция для возврата из меню и revive
     Quaternion startRotation; //начальный поворот для возврата из меню и revive
     int hp = 0; //жизни
+    bool isReviveInvulnerable;
+    bool reviveShieldActive;
+    Coroutine reviveInvulnerabilityCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +67,7 @@ public class PLayerScript : MonoBehaviour
             rightShot.GetComponent<Rigidbody>().velocity = new Vector3(50, 0, 50);
             nextShotSmallTime = Time.time + shotDelay / 2;
         }
+
     }
 
     // OnTriggerEnter is called in collision with object
@@ -83,7 +90,24 @@ public class PLayerScript : MonoBehaviour
             }
             return;
         }
-        hp--;
+
+        if (IsReviveInvulnerable())
+        {
+            if (other.tag == "LazerEnemyShot")
+            {
+                Destroy(other.gameObject);
+            }
+            return;
+        }
+
+        int incomingDamage = 1;
+        DamageSource source = other.GetComponent<DamageSource>();
+        if (source != null)
+        {
+            incomingDamage = Mathf.Max(1, source.damage);
+        }
+
+        hp -= incomingDamage;
         //Если были щиты, то выключаем их
         if (hp == 0)
         {
@@ -104,6 +128,7 @@ public class PLayerScript : MonoBehaviour
     public void Revive()
     {
         ResetPlayer();
+        ActivateReviveInvulnerability();
     }
 
     public void ResetPlayer()
@@ -126,6 +151,49 @@ public class PLayerScript : MonoBehaviour
         }
 
         SetShieldScale(0, 0);
+        isReviveInvulnerable = false;
+        reviveShieldActive = false;
+
+        if (reviveInvulnerabilityCoroutine != null)
+        {
+            StopCoroutine(reviveInvulnerabilityCoroutine);
+            reviveInvulnerabilityCoroutine = null;
+        }
+    }
+
+    bool IsReviveInvulnerable()
+    {
+        return isReviveInvulnerable;
+    }
+
+    void ActivateReviveInvulnerability()
+    {
+        if (reviveInvulnerabilityCoroutine != null)
+        {
+            StopCoroutine(reviveInvulnerabilityCoroutine);
+            reviveInvulnerabilityCoroutine = null;
+        }
+
+        isReviveInvulnerable = true;
+        reviveShieldActive = true;
+        SetShieldScale(maxShieldSize, 2);
+
+        reviveInvulnerabilityCoroutine = StartCoroutine(DisableReviveInvulnerabilityAfterDelay());
+    }
+
+    IEnumerator DisableReviveInvulnerabilityAfterDelay()
+    {
+        yield return new WaitForSeconds(Mathf.Max(0.1f, reviveInvulnerabilityDuration));
+
+        isReviveInvulnerable = false;
+        reviveShieldActive = false;
+
+        if (hp <= 0)
+        {
+            SetShieldScale(0, 0);
+        }
+
+        reviveInvulnerabilityCoroutine = null;
     }
 
     void SetShieldScale(float outerShieldSize, float innerShieldSize)

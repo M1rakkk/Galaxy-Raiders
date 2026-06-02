@@ -64,6 +64,30 @@ public class GameControllerScript : MonoBehaviour
 
     public static GameControllerScript instance;
 
+    [Header("Difficulty / Levels")]
+    [SerializeField] float levelBannerDuration = 2f;
+    [SerializeField] float spawnPauseBetweenLevels = 2f;
+    [SerializeField] int level2StartsAfterEnemyKills = 10;
+    [SerializeField] int bossStartsAfterEnemyKills = 20;
+    [SerializeField] int enemySpawnsPerTickLevel1 = 1;
+    [SerializeField] int enemySpawnsPerTickLevel2 = 2;
+    [SerializeField] float enemySpeedMultiplierLevel1 = 1f;
+    [SerializeField] float enemySpeedMultiplierLevel2 = 1.25f;
+    [SerializeField] float enemySpeedMultiplierLevel3 = 1.35f;
+    [SerializeField] int enemyDamageLevel1 = 1;
+    [SerializeField] int enemyDamageLevel2 = 2;
+    [SerializeField] int enemyDamageLevel3 = 3;
+    [SerializeField] float minSpawnDelayLevel1 = 0.20f;
+    [SerializeField] float maxSpawnDelayLevel1 = 0.80f;
+    [SerializeField] float minSpawnDelayLevel2 = 0.12f;
+    [SerializeField] float maxSpawnDelayLevel2 = 0.55f;
+
+    int enemyKills = 0;
+    int difficultyLevel = 1;
+    float spawnPausedUntilUnscaled = 0f;
+    Text levelBannerText;
+    Coroutine levelBannerCoroutine;
+
     enum GameUiState
     {
         MainMenu,
@@ -93,6 +117,8 @@ public class GameControllerScript : MonoBehaviour
 
         UpdateScoreText();
         SetUiState(GameUiState.MainMenu);
+
+        ResetDifficultyProgress();
     }
 
     void Update()
@@ -122,6 +148,7 @@ public class GameControllerScript : MonoBehaviour
         Time.timeScale = 1f;
         isStarted = true;
         resultSavedThisRound = false;
+        ResetDifficultyProgress();
         SetUiState(GameUiState.Playing);
         ShowControlHint();
     }
@@ -208,10 +235,138 @@ public class GameControllerScript : MonoBehaviour
         isStarted = false;
         resultSavedThisRound = false;
         score = 0;
+        ResetDifficultyProgress();
         UpdateScoreText();
         ClearDynamicObjects();
         ResetPlayer();
         SetUiState(GameUiState.MainMenu);
+    }
+
+    public void RegisterEnemyKill(int scoreIncrement)
+    {
+        increaseScore(scoreIncrement);
+        enemyKills += 1;
+        CheckLevelProgression();
+    }
+
+    void ResetDifficultyProgress()
+    {
+        enemyKills = 0;
+        difficultyLevel = 1;
+        spawnPausedUntilUnscaled = 0f;
+        HideLevelBannerInstant();
+    }
+
+    void CheckLevelProgression()
+    {
+        if (difficultyLevel == 1 && enemyKills >= level2StartsAfterEnemyKills)
+        {
+            difficultyLevel = 2;
+            StartLevelTransition("УРОВЕНЬ 2");
+            return;
+        }
+
+        if (difficultyLevel == 2 && enemyKills >= bossStartsAfterEnemyKills)
+        {
+            difficultyLevel = 3;
+            StartLevelTransition("ФИНАЛЬНЫЙ БОСС");
+            return;
+        }
+    }
+
+    void StartLevelTransition(string label)
+    {
+        spawnPausedUntilUnscaled = Time.unscaledTime + spawnPauseBetweenLevels;
+        ShowLevelBanner(label);
+
+        if (levelBannerCoroutine != null)
+        {
+            StopCoroutine(levelBannerCoroutine);
+        }
+        levelBannerCoroutine = StartCoroutine(HideLevelBannerAfterDelay());
+    }
+
+    IEnumerator HideLevelBannerAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(levelBannerDuration);
+        HideLevelBannerInstant();
+        levelBannerCoroutine = null;
+    }
+
+    void ShowLevelBanner(string label)
+    {
+        if (levelBannerText == null)
+        {
+            return;
+        }
+
+        levelBannerText.text = string.IsNullOrEmpty(label) ? string.Empty : label;
+        levelBannerText.gameObject.SetActive(true);
+    }
+
+    void HideLevelBannerInstant()
+    {
+        if (levelBannerText == null)
+        {
+            return;
+        }
+
+        levelBannerText.text = string.Empty;
+        levelBannerText.gameObject.SetActive(false);
+    }
+
+    public bool IsInSpawnPause()
+    {
+        if (!isStarted)
+        {
+            return true;
+        }
+        return Time.unscaledTime < spawnPausedUntilUnscaled;
+    }
+
+    public bool IsBossTime()
+    {
+        return difficultyLevel >= 3;
+    }
+
+    public int GetDifficultyLevel()
+    {
+        return difficultyLevel;
+    }
+
+    public float GetEnemySpeedMultiplier()
+    {
+        if (difficultyLevel == 1) return enemySpeedMultiplierLevel1;
+        if (difficultyLevel == 2) return enemySpeedMultiplierLevel2;
+        return enemySpeedMultiplierLevel3;
+    }
+
+    public int GetEnemyDamage()
+    {
+        if (difficultyLevel == 1) return enemyDamageLevel1;
+        if (difficultyLevel == 2) return enemyDamageLevel2;
+        return enemyDamageLevel3;
+    }
+
+    public int GetEnemySpawnsPerTick()
+    {
+        if (difficultyLevel == 1) return Mathf.Max(1, enemySpawnsPerTickLevel1);
+        if (difficultyLevel == 2) return Mathf.Max(1, enemySpawnsPerTickLevel2);
+        return 0; // boss level: no normal spawns
+    }
+
+    public float GetMinSpawnDelay()
+    {
+        if (difficultyLevel == 1) return minSpawnDelayLevel1;
+        if (difficultyLevel == 2) return minSpawnDelayLevel2;
+        return 999f;
+    }
+
+    public float GetMaxSpawnDelay()
+    {
+        if (difficultyLevel == 1) return maxSpawnDelayLevel1;
+        if (difficultyLevel == 2) return maxSpawnDelayLevel2;
+        return 999f;
     }
 
     public void SetVolume(float volume)
@@ -772,6 +927,30 @@ public class GameControllerScript : MonoBehaviour
         if (canvas == null)
         {
             return;
+        }
+
+        if (levelBannerText == null)
+        {
+            Transform existing = canvas.transform.Find("LevelBannerText");
+            if (existing != null)
+            {
+                levelBannerText = existing.GetComponent<Text>();
+            }
+        }
+
+        if (levelBannerText == null)
+        {
+            levelBannerText = CreateText(canvas.transform, "LevelBannerText", "", 54, new Vector2(680f, 90f), Vector2.zero);
+            RectTransform rt = levelBannerText.GetComponent<RectTransform>();
+            if (rt != null)
+            {
+                rt.anchorMin = new Vector2(0.5f, 0.5f);
+                rt.anchorMax = new Vector2(0.5f, 0.5f);
+                rt.pivot = new Vector2(0.5f, 0.5f);
+                rt.anchoredPosition = Vector2.zero;
+            }
+            levelBannerText.gameObject.SetActive(false);
+            AddTextShadow(levelBannerText, new Color(0f, 0f, 0f, 0.75f), new Vector2(3f, -3f));
         }
 
         if (volumeSlider == null && menu != null)
