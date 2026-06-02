@@ -673,6 +673,7 @@ MonoBehaviour:
   - {fileID: 1438055157430176938, guid: d8b5191edaea8eb40a16c2a52468be28, type: 3}
   enemyShip: {fileID: 3811837704421546354, guid: b16e38d172c0a3643961937edaaf82af,
     type: 3}
+  bossShip: {fileID: 9000000000000000000, guid: 2f4b7c6a9d5e4b1aa3c8f9f2c1d0eabc, type: 3}
   powerUp: {fileID: 2936100643046571628, guid: 46f2d964848d9cf44a26f06f12b405a8, type: 3}
   text: {fileID: 0}
   minDelay: 0.2
@@ -923,7 +924,7 @@ RectTransform:
   m_GameObject: {fileID: 714921283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 409416032}
   - {fileID: 1888624029}
