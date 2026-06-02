@@ -20,12 +20,16 @@ public class PLayerScript : MonoBehaviour
     float nextShotTime; //время основного выстрела
     float nextShotSmallTime; //время бокового выстрела
     Rigidbody playerShip; //объект корабля
+    Vector3 startPosition; //начальная позиция для возврата из меню и revive
+    Quaternion startRotation; //начальный поворот для возврата из меню и revive
     int hp = 0; //жизни
 
     // Start is called before the first frame update
     void Start()
     {
         playerShip = GetComponent<Rigidbody>();
+        startPosition = transform.position;
+        startRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -75,9 +79,7 @@ public class PLayerScript : MonoBehaviour
             //Если не были установлены щиты, то включаем их 
             if (hp == 1)
             {
-                GameObject[] spheres = GameObject.FindGameObjectsWithTag("Shield");
-                spheres[0].transform.localScale = new Vector3(maxShieldSize, maxShieldSize, maxShieldSize);
-                spheres[1].transform.localScale = new Vector3(2, 2, 2);                
+                SetShieldScale(maxShieldSize, 2);
             }
             return;
         }
@@ -85,9 +87,7 @@ public class PLayerScript : MonoBehaviour
         //Если были щиты, то выключаем их
         if (hp == 0)
         {
-            GameObject[] spheres = GameObject.FindGameObjectsWithTag("Shield");
-            spheres[0].transform.localScale = new Vector3(0, 0, 0);
-            spheres[1].transform.localScale = new Vector3(0, 0, 0);
+            SetShieldScale(0, 0);
             Destroy(other.gameObject);
             return;
         }
@@ -95,8 +95,50 @@ public class PLayerScript : MonoBehaviour
         if (hp < 0)
         {
             Instantiate(playerExplosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
             Destroy(other.gameObject);
-        }        
+            GameControllerScript.instance.ShowGameOver(gameObject);
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void Revive()
+    {
+        ResetPlayer();
+    }
+
+    public void ResetPlayer()
+    {
+        gameObject.SetActive(true);
+        hp = 0;
+
+        if (playerShip == null)
+        {
+            playerShip = GetComponent<Rigidbody>();
+        }
+
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+
+        if (playerShip != null)
+        {
+            playerShip.velocity = Vector3.zero;
+            playerShip.angularVelocity = Vector3.zero;
+        }
+
+        SetShieldScale(0, 0);
+    }
+
+    void SetShieldScale(float outerShieldSize, float innerShieldSize)
+    {
+        GameObject[] spheres = GameObject.FindGameObjectsWithTag("Shield");
+        if (spheres.Length > 0)
+        {
+            spheres[0].transform.localScale = new Vector3(outerShieldSize, outerShieldSize, outerShieldSize);
+        }
+
+        if (spheres.Length > 1)
+        {
+            spheres[1].transform.localScale = new Vector3(innerShieldSize, innerShieldSize, innerShieldSize);
+        }
     }
 }
