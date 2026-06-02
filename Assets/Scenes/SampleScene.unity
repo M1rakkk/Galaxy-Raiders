@@ -673,6 +673,8 @@ MonoBehaviour:
   - {fileID: 1438055157430176938, guid: d8b5191edaea8eb40a16c2a52468be28, type: 3}
   enemyShip: {fileID: 3811837704421546354, guid: b16e38d172c0a3643961937edaaf82af,
     type: 3}
+  bossShip: {fileID: 3811837704421546354, guid: 9f31a10cb16d4b9e9a7f5c806c59e40d,
+    type: 3}
   powerUp: {fileID: 2936100643046571628, guid: 46f2d964848d9cf44a26f06f12b405a8, type: 3}
   text: {fileID: 0}
   minDelay: 0.2
@@ -1429,6 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 409416033}
+  levelText: {fileID: 0}
   startButton: {fileID: 930902266}
   menu: {fileID: 1888624028}
   isStarted: 0

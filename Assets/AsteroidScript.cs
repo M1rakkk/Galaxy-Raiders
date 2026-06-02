@@ -7,6 +7,7 @@ public class AsteroidScript : MonoBehaviour
     public float rotationSpeed;
     public float minSpeed, maxSpeed;
     public float minSize, maxSize;
+    public int damage = 1;
     float size;
 
     // Start is called before the first frame update
@@ -14,7 +15,19 @@ public class AsteroidScript : MonoBehaviour
     {
         Rigidbody asteroid = GetComponent<Rigidbody>();
         asteroid.angularVelocity = Random.insideUnitSphere * rotationSpeed;
-        float speed = Random.Range(minSpeed, maxSpeed);
+        float speedMultiplier = 1f;
+        if (GameControllerScript.instance != null)
+        {
+            speedMultiplier = GameControllerScript.instance.GetEnemySpeedMultiplier();
+            damage = GameControllerScript.instance.GetEnemyDamage();
+        }
+
+        DamageDealerScript damageDealer = GetComponent<DamageDealerScript>();
+        if (damageDealer == null)
+            damageDealer = gameObject.AddComponent<DamageDealerScript>();
+        damageDealer.damage = damage;
+
+        float speed = Random.Range(minSpeed, maxSpeed) * speedMultiplier;
         asteroid.velocity = new Vector3(0, 0, - speed);
         size = Random.Range(minSize, maxSize);
         asteroid.transform.localScale *= size;
@@ -38,7 +51,7 @@ public class AsteroidScript : MonoBehaviour
         if (other.tag == "LazerShot")
         {
             Destroy(other.gameObject);
-            GameControllerScript.instance.increaseScore(1);
+            GameControllerScript.instance.EnemyDestroyed(false);
         }
     }
 }

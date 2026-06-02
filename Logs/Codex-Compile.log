@@ -1,0 +1,855 @@
+[LicensingClient] ERROR Failed to connect to local IPC
+[Licensing::Module] Failed to connect to channel: LicenseClient-Zhenya
+[Licensing::Module] Successfully launched the LicensingClient
+[Licensing::Module] Successfully connected to LicensingClient on channel: LicenseClient-Zhenya
+[Licensing::Module] Successfully launched and connected to LicensingClient
+Entitlement-based licensing initiated
+[LicensingClient] Licenses Updated successfully in LicensingClient
+
+LICENSE SYSTEM [202662 15:15:47] Next license update check is after 2026-05-23T15:17:51
+
+Built from '2019.3/staging' branch; Version is '2019.3.15f1 (59ff3e03856d) revision 5898046'; Using compiler version '191627012'
+OS: 'Windows 10  (10.0.0) 64bit' Language: 'ru' Physical Memory: 32609 MB
+[Licensing::Module] Serial number assigned to: "F4-STR5-S78C-5DXV-S94R-XXXX"\nBatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+[Package Manager] Server::Start -- Port 60719 was selected
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+C:\Users\заза\Desktop\Galaxy-Raiders
+-logFile
+C:\Users\заза\Desktop\Galaxy-Raiders\Logs\Codex-Compile.log
+Successfully changed project path to: C:\Users\заза\Desktop\Galaxy-Raiders
+C:/Users/заза/Desktop/Galaxy-Raiders
+Using Asset Import Pipeline V2.
+DisplayProgressbar: Unity Package Manager
+Adding genesis user token [Package Manager] Done resolving packages in 0.32s seconds
+[Package Manager] Done checking package constraints in 0.00s seconds
+[Package Manager] 
+Registered 40 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.collab-proxy@1.2.16 (location: C:\Users\заза\Desktop\Galaxy-Raiders\Library\PackageCache\com.unity.collab-proxy@1.2.16)
+    com.unity.ide.rider@1.1.4 (location: C:\Users\заза\Desktop\Galaxy-Raiders\Library\PackageCache\com.unity.ide.rider@1.1.4)
+    com.unity.ide.vscode@1.2.0 (location: C:\Users\заза\Desktop\Galaxy-Raiders\Library\PackageCache\com.unity.ide.vscode@1.2.0)
+    com.unity.test-framework@1.1.14 (location: C:\Users\заза\Desktop\Galaxy-Raiders\Library\PackageCache\com.unity.test-framework@1.1.14)
+    com.unity.textmeshpro@2.0.1 (location: C:\Users\заза\Desktop\Galaxy-Raiders\Library\PackageCache\com.unity.textmeshpro@2.0.1)
+    com.unity.timeline@1.2.14 (location: C:\Users\заза\Desktop\Galaxy-Raiders\Library\PackageCache\com.unity.timeline@1.2.14)
+    com.unity.ext.nunit@1.0.0 (location: C:\Users\заза\Desktop\Galaxy-Raiders\Library\PackageCache\com.unity.ext.nunit@1.0.0)
+  Built-in packages:
+    com.unity.ugui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui)
+    com.unity.modules.ai@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Program Files\Unity\Hub\Editor\2019.3.15f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.modules.subsystems)
+
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.00s seconds
+Refreshing native plugins compatible for Editor in 10.60 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2019.3.15f1 (59ff3e03856d)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/заза/Desktop/Galaxy-Raiders/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2489)
+    Vendor:   
+    VRAM:     8024 MB
+    Driver:   32.0.15.7216
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56596
+ImportWorker Server TCP listen port: 54863
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.001859 seconds.
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 9.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unable to find bridge dll in registry for Microsoft Visual Studio Tools for Unity for C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe
+Mono: successfully reloaded assembly
+- Completed reload, in  1.280 seconds
+Registering precompiled user dll's ...
+Registered in 0.047159 seconds.
+Platform modules already initialized, skipping
+Validating Project structure ... 0.006887 seconds.
+Shader import version has changed; will reimport all shaders...
+Upgrading shader files ...0.009827 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\заза\Desktop\Galaxy-Raiders\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.14 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unable to find bridge dll in registry for Microsoft Visual Studio Tools for Unity for C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe
+Mono: successfully reloaded assembly
+- Completed reload, in  0.405 seconds
+Platform modules already initialized, skipping
+RefreshInfo: InitialScriptRefreshV2(NoUpdateAssetOptions)
+RefreshProfiler: Total: 0.000ms
+	InvokeBeforeRefreshCallbacks: 874.054ms
+	ApplyChangesToAssetFolders: 0.300ms
+	WriteModifiedImportersToTextMetaFiles: 0.056ms
+	CleanLegacyArtifacts: 0.000ms
+	Scan: 0.000ms
+	OnSourceAssetsModified: 25.692ms
+	UnregisterDeletedAssets: 0.000ms
+	InitializeImportedAssetsSnapshot: 0.000ms
+	GetAllGuidsForCategorization: 0.170ms
+	CategorizeAssets: 0.055ms
+	ImportAndPostprocessOutOfDateAssets: 160.595ms (682.300ms without children)
+		ImportManagerImport: 681.894ms (0.000ms without children)
+			ImportInProcess: 0.000ms
+			ImportOutOfProcess: 0.000ms
+			UpdateCategorizedAssets: 0.000ms
+			RemoteAssetCacheGetArtifact: 0.000ms (0.000ms without children)
+				RemoteAssetCacheResolve: 0.000ms
+				RemoteAssetCacheDownloadFile: 0.000ms
+		CompileScripts: 0.000ms
+		PostProcessAllAssets: 0.000ms
+		ReloadImportedAssets: 0.000ms
+		VerifyAssetsAreUpToDateAndCorrect: 0.001ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.000ms
+		InitializingProgressBar: 0.127ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.003ms
+		OnDemandSchedulerStart: 0.076ms
+		RestoreLoadedAssetsState: 0.000ms
+	InvokeProjectHasChanged: 0.198ms
+	UpdateImportedAssetsSnapshot: 0.000ms
+	ReloadSourceAssets: 0.000ms
+	UnloadImportedAssets: 0.210ms
+	Hotreload: 0.107ms
+	FixTempGuids: 0.165ms
+	VerifyGuidPMRegistrations: 0.003ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.000ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 0.251ms
+	GetLoadedSourceAssetsSnapshot: 0.003ms
+	PersistCurrentRevisions: 0.288ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 2.627ms
+Start importing Assets/Sounds/BackgroundMusic/Extras/Military_DogFight_Loop.ogg using Guid(32d36c25bc878498baecca74e4fb719f) Importer(-1,00000000000000000000000000000000)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Done importing asset: 'Assets/Sounds/BackgroundMusic/Extras/Military_DogFight_Loop.ogg' (target hash: '8d4b91ea9727e82843d1d27376095a02') in 1.992575 seconds
+Start importing Assets/Sounds/Laser/Laser11.wav using Guid(321c57076d528934aa5e2ed5eb2798ce) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser11.wav' (target hash: '685637e63369c7f5eb16a52ae69e50e2') in 0.107665 seconds
+Start importing Assets/Standard Assets/Characters/FirstPersonCharacter/Audio/Footstep01.wav using Guid(42e65e088b3f4374e851b8dbd38f3df9) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Standard Assets/Characters/FirstPersonCharacter/Audio/Footstep01.wav' (target hash: '66158506ca08b865c9126fa5f7d9ada1') in 0.088834 seconds
+Start importing Assets/Sounds/BackgroundMusic/Extras/Jazz_Blazer_Loop.ogg using Guid(626bc169dd1354130a697094492ee6fd) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/Extras/Jazz_Blazer_Loop.ogg' (target hash: 'ea64c689940c1ae2a6e4f3cbe08aedc1') in 1.067268 seconds
+Start importing Assets/Sounds/Laser/Laser4.wav using Guid(9270ddc8630a1654bbce8a26e755b058) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser4.wav' (target hash: 'b8d1633480d059014c0a951fa7bd14f6') in 0.130232 seconds
+Start importing Assets/Sounds/BackgroundMusic/Extras/Spooky_60sSciFi_Loop.ogg using Guid(c2302d99885f7455c9d159baaef753c0) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/Extras/Spooky_60sSciFi_Loop.ogg' (target hash: 'f4f13fd1f018b15ec4f4074b9c2aa92c') in 1.157989 seconds
+Start importing Assets/Sounds/Explosions/Grenade4Short.wav using Guid(c2153dcd0edd22f40bdebf613271bae7) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Explosions/Grenade4Short.wav' (target hash: '95d2007d6eb32b32f93b3bc8610b9527') in 0.134884 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_PressOn_Loop.ogg using Guid(83a0a974ab25a4adfba3cbb3a1aaa76e) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_PressOn_Loop.ogg' (target hash: 'c6fa7a40b914ebabce1bbea27b7eec0d') in 1.167852 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_Resolution_Loop.ogg using Guid(e39f69181b3274f06aa80dbe740aaa13) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_Resolution_Loop.ogg' (target hash: '5671f39aec0a03ee96b3bd2e41d719cf') in 0.813364 seconds
+Start importing Assets/Sounds/Laser/Laser19.wav using Guid(74fcae481467c404697202c3dad210a8) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser19.wav' (target hash: 'ef5f623693e020fcf113a84663a4a7f2') in 0.116703 seconds
+Start importing Assets/PowerUp/Sounds/power-up.wav using Guid(a4a9327e98855524c846cc8e2f559e96) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Sounds/power-up.wav' (target hash: 'a8646c8786111ff914a6742c93138357') in 0.103389 seconds
+Start importing Assets/Sounds/Explosions/Grenade3Short.wav using Guid(c401d00c96b512e488d2e3bf5d111509) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Explosions/Grenade3Short.wav' (target hash: 'ad5d711bac6132536bdbba3df037fba0') in 0.148875 seconds
+Start importing Assets/Sounds/Explosions/Grenade10Short.wav using Guid(d4aee29185389894b9cc0d8873904a49) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Explosions/Grenade10Short.wav' (target hash: '9bcf521e4616f01e0a6ef3d8caf31fff') in 0.120831 seconds
+Start importing Assets/Sounds/Laser/Laser7.wav using Guid(257e13bca8b014b498110dea179a52a1) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser7.wav' (target hash: '7d65e3ac920a3cff2242587c4038379f') in 0.124660 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_01.ogg using Guid(258e311ecdad0499f84da6b125e6177c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_01.ogg' (target hash: '90995f4a9caf92e71f0d3e9d1f9b3b7a') in 1.856997 seconds
+Start importing Assets/ExplosionEffects/Cartoon FX Easy Editor/CartoonFX Easy Editor Readme.txt using Guid(459d1fc7f02e45a45806af5efd38b025) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/Cartoon FX Easy Editor/CartoonFX Easy Editor Readme.txt' (target hash: 'bc925c197c474d6b0c8e71f8fd60c589') in 0.007533 seconds
+Start importing Assets/Sounds/Laser/Laser8.wav using Guid(65017124e5ceae045b1c5629d69aa8cb) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser8.wav' (target hash: '6ed298e8abe651b5a61cd6f47bbc9301') in 0.134118 seconds
+Start importing Assets/Sounds/Explosions/Grenade1Short.wav using Guid(8524588a69a4f3e40bb597b6221138f1) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Explosions/Grenade1Short.wav' (target hash: '80f3ca8468e4960f28cffe8fe9a27606') in 0.140271 seconds
+Start importing Assets/Sounds/Laser/Laser6.wav using Guid(c5ab43eb861ef3c4db4600527c3ec29b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser6.wav' (target hash: 'a374d7e60d9430cd291aba11b306a848') in 0.122269 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_DarkCave_Loop.ogg using Guid(46ec4ed652af74f7d9a680ac07e9f8a2) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_DarkCave_Loop.ogg' (target hash: '5e7be28084d9c2f26fcff019b7823108') in 1.082339 seconds
+Start importing Packages/com.unity.ide.rider/package.json using Guid(66c95bb3c74257f41bae2622511dc02d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Packages/com.unity.ide.rider/package.json' (target hash: '58e78c19171d0091a82ed4f4bd47f27b') in 0.007825 seconds
+Start importing Assets/Sounds/BackgroundMusic/ReadMe.txt using Guid(178e28c19e375493eb905deccbca861d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/ReadMe.txt' (target hash: '7278a5feb1367e03ef9876908a280587') in 0.009374 seconds
+Start importing Assets/Sounds/Laser/Laser16.wav using Guid(5752bcbc37b3cb4448f5ea2854f25740) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser16.wav' (target hash: 'f4d0bf6ad1ddce4cbd0dfba1d9c1b918') in 0.113893 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_03.ogg using Guid(a716130e5ecf94cfa9514c1ae65a516b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_03.ogg' (target hash: '3e5c1dd18215182b1cd119f40b388ec6') in 2.368300 seconds
+Start importing Assets/Sounds/BackgroundMusic/Extras/Military_LoneTrumpeteer_Loop.ogg using Guid(d72ed01aa34dc4a078b58117ac8827f2) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/Extras/Military_LoneTrumpeteer_Loop.ogg' (target hash: '6b58a405b716f18ba639ffaf50eeba21') in 0.554411 seconds
+Start importing Assets/Sounds/Laser/Laser13.wav using Guid(0800b4854e84ad243a55e1f7a44844f2) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser13.wav' (target hash: '8f006e94cc1f3445948eb077561cdbf3') in 0.122354 seconds
+Start importing Assets/Standard Assets/Characters/FirstPersonCharacter/Audio/Jump.wav using Guid(5897aeed9b676024fbb8c694b421a861) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Standard Assets/Characters/FirstPersonCharacter/Audio/Jump.wav' (target hash: '920f95477c313c71863e36726f431076') in 0.092458 seconds
+Start importing Assets/Sounds/Laser/Laser17.wav using Guid(98a3c95a6ae178f4b8249ae2b336832c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser17.wav' (target hash: '4faeea915c1d60202bf24edebd79a504') in 0.121414 seconds
+Start importing Assets/Sounds/Laser/Laser20.wav using Guid(c8c4c2fc396c17d4782362c72b190b27) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser20.wav' (target hash: 'e6046e6496b811359166445b8711ee59') in 0.122057 seconds
+Start importing Assets/Sounds/BackgroundMusic/Extras/Military_Preperation_Loop.ogg using Guid(59056f5a0de7d475aafd3a2a7a12b08a) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/Extras/Military_Preperation_Loop.ogg' (target hash: '742ebf604373b13770179f032a4731fc') in 1.023266 seconds
+Start importing Assets/Sounds/BackgroundMusic/Extras/Jazz_SpeedJazz_Loop.ogg using Guid(c9efa5f98315e44f6ae787b958f0d0c4) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/Extras/Jazz_SpeedJazz_Loop.ogg' (target hash: '3858bdf7620d248577d88fdf7b4acb84') in 1.842167 seconds
+Start importing Assets/Sounds/Laser/Laser12.wav using Guid(4a14985fcced5674bb9a3ec19845dc96) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser12.wav' (target hash: 'f179ddf2469a239c68620f94a26e8265') in 0.115119 seconds
+Start importing Assets/Sounds/Laser/Laser10.wav using Guid(6a83ea895be860c42916d91104e61cdd) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser10.wav' (target hash: 'a549f03879b5eebbbe2346142900c8b6') in 0.127117 seconds
+Start importing Assets/Sounds/Laser/Laser18.wav using Guid(fa55a2f8e3fcfc243be4e933bde97de8) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser18.wav' (target hash: '31ed9008e8d4ae095ef0c716ca06c2d9') in 0.122790 seconds
+Start importing Assets/Sounds/Laser/Laser14.wav using Guid(fa5a8beea5991cb4e8fa6302dc57c59f) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser14.wav' (target hash: '1cbb174610bdd17310f6168c6ab0a787') in 0.128282 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_Violins_Loop.ogg using Guid(0ba6ef1638d3a4bea93b34bbef0a123c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_Violins_Loop.ogg' (target hash: '4dbc42afc1c46e2269a2dd8ee4c49e17') in 0.770465 seconds
+Start importing Assets/Standard Assets/Characters/FirstPersonCharacter/Audio/Land.wav using Guid(3b09d59f4499d45428baa7a21e954296) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Standard Assets/Characters/FirstPersonCharacter/Audio/Land.wav' (target hash: '2d1db77c674b33dbd9d0d5b9458aeb6f') in 0.078511 seconds
+Start importing Assets/Sounds/Laser/Laser5.wav using Guid(5b8901772ab55c64baaba01ecc55281c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser5.wav' (target hash: '62311488b82aae5ab424f64fd1720651') in 0.117678 seconds
+Start importing Assets/Standard Assets/Characters/FirstPersonCharacter/Audio/Footstep02.wav using Guid(8bc94ec6ed537e743b481638bdcd503d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Standard Assets/Characters/FirstPersonCharacter/Audio/Footstep02.wav' (target hash: '52063c057fa8d8652caaa31d6a422d00') in 0.085187 seconds
+Start importing Assets/Sounds/Explosions/Grenade5Short.wav using Guid(8b3f676fe7b41044495a2964396b8ba3) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Explosions/Grenade5Short.wav' (target hash: '20ff175e2df04fbb5eb69cb3a9e7022d') in 0.132627 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_Darkness_Loop.ogg using Guid(ab1d6c8284aac433f950f27ea2253c15) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_Darkness_Loop.ogg' (target hash: '7b298284b1bd4390204546208061a1d5') in 1.300978 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_PressOn_Loop_02.ogg using Guid(2cc3962fef85b49c993d168c562e8650) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_PressOn_Loop_02.ogg' (target hash: '7a81a0c9d8a795c96bb668b104b622ed') in 2.539668 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_NewsReel_Loop.ogg using Guid(fc55e85438fe44522b95eb893c55a09f) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_NewsReel_Loop.ogg' (target hash: '75a595e4a7dc69563b5fc390a4ba1524') in 0.484824 seconds
+Start importing Assets/Sounds/Explosions/Grenade2Short.wav using Guid(fc96116dc3c141440aabb5605744fea2) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Explosions/Grenade2Short.wav' (target hash: '8da8c62bd14ec1d8cd0b7b49753bd75e') in 0.131517 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_Loading_Loop.ogg using Guid(6dc4be81296344087a45172d7ba5e06f) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_Loading_Loop.ogg' (target hash: 'dd61f06bb72a8c78211cc1143eabf3db') in 0.415693 seconds
+Start importing Assets/ExplosionEffects/WarFX/!WarFX Readme.txt using Guid(8d452a2501eaf7c47b01213988e3e5ec) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/!WarFX Readme.txt' (target hash: 'ba559d3d705c076d4a129c0fd830e2e9') in 0.008131 seconds
+Start importing Assets/Sounds/Explosions/Grenade7Short.wav using Guid(fd706038486fee041947a774223dc22e) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Explosions/Grenade7Short.wav' (target hash: 'a216423037006aa592edf5c80f2a8527') in 0.121666 seconds
+Start importing Assets/Sounds/Laser/Laser9.wav using Guid(2eb1c3d672cbeec45bb20869e0914179) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser9.wav' (target hash: '4b13a40f5d4d49aa490d8ffc3d5995ba') in 0.130339 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_Darkness_Loop_02.ogg using Guid(2e03ea08721f4428bad8a4aca5b4d869) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_Darkness_Loop_02.ogg' (target hash: '261e217952988d5b2853a59bb0265ba1') in 1.068263 seconds
+Start importing Assets/Sounds/BackgroundMusic/FutureWorld_TheHeist_Loop.ogg using Guid(4ed329fb053834bc281b49629c77fa03) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/BackgroundMusic/FutureWorld_TheHeist_Loop.ogg' (target hash: 'c2a7ba52b9514c15b0c7f07e511e7529') in 1.657647 seconds
+Start importing Assets/Sounds/Laser/Laser3.wav using Guid(8e5adb3004157f24385e3de1f02cc1ce) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser3.wav' (target hash: 'b65b805ae68674c46cab382ee6e440d4') in 0.125920 seconds
+Start importing Assets/Sounds/Laser/Laser15.wav using Guid(6f8efae2a70a9f54cbdb5dc8dd4e9fd7) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser15.wav' (target hash: '9801cf60173b3c1fd4d78c900965af81') in 0.134699 seconds
+Start importing Assets/Sounds/Laser/Laser1.wav using Guid(dfac0c1a2df2ad74d8be4823300a4f56) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser1.wav' (target hash: '7ab57db0ad6b6663032c340781af8803') in 0.119330 seconds
+Start importing Assets/Sounds/Laser/Laser2.wav using Guid(ef60541ebbb9d084289ab5fb98d05231) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Sounds/Laser/Laser2.wav' (target hash: 'c97d7cfbb581196f3983a0271d1e46f8') in 0.125557 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_Fire Natural Broad (Black Smoke).prefab using Guid(002c8e66c11fe4048a8c3a08b7f0fe74) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_Fire Natural Broad (Black Smoke).prefab' (target hash: 'ad4f8ab2cc50e7614003fff172c9512a') in 0.031925 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow4.prefab using Guid(206dc24d514cdd146a07be8e731a56e9) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow4.prefab' (target hash: '403162fdf51189fd387ac139285d807c') in 0.046233 seconds
+Start importing Assets/PowerUp/Particles Systems/Flame-3-Particles.prefab using Guid(805df92cec033ed4f8591ada0f5d7687) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Flame-3-Particles.prefab' (target hash: '6330f084f239ddf6ee8bbf164fcdf99c') in 0.018290 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow2.prefab using Guid(9049f178339a1ec49b8d10542e9d6787) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow2.prefab' (target hash: '3888592d2007f4ff09b0ae4d7c6e7c3c') in 0.025586 seconds
+Start importing Assets/Space/Prefabs/Prefab9.prefab using Guid(a0fc9e1005dfa19489c0420140a3b1fa) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab9.prefab' (target hash: '9ab10830f94df30856c5e3456f4c8619') in 0.022303 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Explosions/WFX_ExplosiveSmoke Big Alt.prefab using Guid(e0609132424a24844b1d53ad3d704fd9) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Explosions/WFX_ExplosiveSmoke Big Alt.prefab' (target hash: '7d1b42a1100a899ac6f717068b40217d') in 0.027700 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerWhite.prefab using Guid(e0b186a53bbd65f498681cafa278d094) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerWhite.prefab' (target hash: '05b85eabc72ae74c4b1824b107c3b449') in 0.026291 seconds
+Start importing Assets/StarSparrow/Prefabs/Modules/StarSparrow_Engine.prefab using Guid(01b4c9caff0ad4d48ac8cb23e89e5224) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/Modules/StarSparrow_Engine.prefab' (target hash: 'cdeb37974398380f53f567dcd07f2cfd') in 0.021264 seconds
+Start importing Assets/Prefabs/Asteroid1.prefab using Guid(014be6420dc3514428553cf5bf77567a) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/Asteroid1.prefab' (target hash: '8d629e9449cad986e56ea35d60e01bb6') in 0.045210 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Looped.prefab using Guid(21f6aea0c9b788c4b9b6275efc33d0f9) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Looped.prefab' (target hash: '366aa94a64ee1a7779d4809d494903d2') in 0.020891 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_GazFireBig (Green).prefab using Guid(416b2492ca9d1b140874c7ba41cb3214) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_GazFireBig (Green).prefab' (target hash: '7925c27d626dc29a0eb60217d1ee837a') in 0.025410 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_Fire Natural (Gray Smoke).prefab using Guid(717898f1e82d6b94f8dfa819112cc432) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_Fire Natural (Gray Smoke).prefab' (target hash: '4842cfdcc38b0d4639404df96ff70640') in 0.021189 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_GazFireBig (Gray Smoke).prefab using Guid(b129faff9037943418e319f01ef35913) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_GazFireBig (Gray Smoke).prefab' (target hash: '787d46f768554d49788cb00743c27156') in 0.020638 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow5.prefab using Guid(4d54efa43b03b1845b929768cf25e790) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow5.prefab' (target hash: '9d93c32a3e19309d1060da3d5a4e0d30') in 0.033472 seconds
+Start importing Assets/Prefabs/Enemy.prefab using Guid(b16e38d172c0a3643961937edaaf82af) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/Enemy.prefab' (target hash: '3ce6732481cbd3dc72d6dd62d199400c') in 0.034385 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_GazFireBig (Purple).prefab using Guid(e15f5af5b5f07bd469b5f4f98ed23c39) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_GazFireBig (Purple).prefab' (target hash: 'a712cb8d4b92a1f32aa670e8212b0afa') in 0.022529 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerBlueFlame.prefab using Guid(f10a79f37ff522b4280e2844332bef77) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerBlueFlame.prefab' (target hash: '0a42d049876679b4aba95d0db8b8693b') in 0.029486 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire pro yellow.prefab using Guid(52d340ed9c2714c4f8aabf1f82df1b58) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire pro yellow.prefab' (target hash: '16625f92fd721a944ec8773c44af9b4b') in 0.026450 seconds
+Start importing Assets/Prefabs/LazerShot.prefab using Guid(025885dfed33cbe46815e5ad0b4d8d97) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/LazerShot.prefab' (target hash: 'f76e57dd5ac2b64594133cb99f6a6714') in 0.035872 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow8.prefab using Guid(12e2965e034095b40b035c26bdecd5ed) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow8.prefab' (target hash: 'abaacb852614eac2ae4cb78cfa6457f0') in 0.025764 seconds
+Start importing Assets/StarSparrow/Prefabs/Modules/StarSparrow_Core.prefab using Guid(328366602c7f9ae4aa29ecb957c7731d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/Modules/StarSparrow_Core.prefab' (target hash: '1d6be21c1e839ff1deecd1394e46c33c') in 0.017396 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire 2.prefab using Guid(529eb4216865eba419c1a4a68d0b0388) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire 2.prefab' (target hash: '1bffc38338afd5f4b3e1bba8e19e801e') in 0.021490 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow8.prefab using Guid(821cb84404cdb734481db5d7b905b37a) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow8.prefab' (target hash: '7b07f470885dd49dcc8650bdb3bdf62d') in 0.031878 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Big Looped.prefab using Guid(b2e8413438f79464aa69948979b150a8) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Big Looped.prefab' (target hash: '31a52ebc0b0e8a12ddc2cdf584a28907') in 0.026101 seconds
+Start importing Assets/PowerUp/Particles Systems/Spark-1-Particles.prefab using Guid(c2204c8be58cfc341a8cc5f6d3d0897e) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Spark-1-Particles.prefab' (target hash: '7d2ccda3d4a39dcffbb598f636ecfc2b') in 0.014525 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow3.prefab using Guid(e261f7b66a8f0fd4492d87df1eee4222) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow3.prefab' (target hash: '3c0557b57e702e5641e068d52260a0b7') in 0.021456 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerElectricSpark.prefab using Guid(034e51e6d8986d04795f48b487231687) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerElectricSpark.prefab' (target hash: '77dda558cc59c62cdb329ba05a03b197') in 0.018082 seconds
+Start importing Assets/Procedural fire/Prefabs/RotatorPS1.prefab using Guid(1381b64ff1936ac4e80c3a00687081f3) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/RotatorPS1.prefab' (target hash: 'ee49d22469d1e8520ea9d565250ff59f') in 0.032424 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow12.prefab using Guid(137404c3ccadbc94c8eafe555ab8aaee) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow12.prefab' (target hash: '83673fa44ad907a46c40d6e40679fc26') in 0.020114 seconds
+Start importing Assets/PowerUp/Particles Systems/Spark-4-Particles.prefab using Guid(234dc7ebff095244b948288a5886c5da) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Spark-4-Particles.prefab' (target hash: 'd973249e82d593fbb1e473e35f6dc610') in 0.014306 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow6.prefab using Guid(33942a27e06a55e498652847d7d15f99) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow6.prefab' (target hash: '4a6eda95c00a4b73bab26dcd89271445') in 0.021631 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerDoubleShine.prefab using Guid(339ec13e94b70ca469275f6f7e29bac3) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerDoubleShine.prefab' (target hash: 'f7e5248dfa5495d62574c5ebfe239eb7') in 0.022769 seconds
+Start importing Assets/StarSparrow/Prefabs/Modules/StarSparrow_Wing_3.prefab using Guid(53643d8f33e9df94ba733d00e1c6d10c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/Modules/StarSparrow_Wing_3.prefab' (target hash: '938c04bce5aafe35bc5e4c390b8de8a9') in 0.018202 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_Fire Natural (No Smoke).prefab using Guid(b3167a8e5b4bb9541be8e07f4fac8355) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_Fire Natural (No Smoke).prefab' (target hash: 'a0af676d2eb4f01e6fc7dcd46bacb9f0') in 0.019552 seconds
+Start importing Assets/StarSparrow/Prefabs/Modules/StarSparrow_Wing_1.prefab using Guid(b30ca3097cfd8de47aa1ba38578e0c30) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/Modules/StarSparrow_Wing_1.prefab' (target hash: '277916cbe659866fd9912a8abf730ab2') in 0.017796 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Big.prefab using Guid(e3b931080c9262e408c0378d77443cb7) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Big.prefab' (target hash: 'c0798753f5e6a021d25af7c096e5e348') in 0.019415 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow1.prefab using Guid(0478b1e28fd9831458b0f051b9d2ad8b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow1.prefab' (target hash: 'ae2a595d76c6bd07188bf02382f3a687') in 0.022489 seconds
+Start importing Assets/PowerUp/Prefabs/CustomizableParts/InnerPowerUp.prefab using Guid(149a83b3d7325574581f93b92f7e7746) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/CustomizableParts/InnerPowerUp.prefab' (target hash: '9776d1c2a8a7335937e8b939c458fe8f') in 0.018882 seconds
+Start importing Assets/StarSparrow/Prefabs/BonusContent/Bomb.prefab using Guid(54958f8430f04ae4ab653a498c64314c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/BonusContent/Bomb.prefab' (target hash: '0bbf466529d72ed268a510beac46d429') in 0.019752 seconds
+Start importing Assets/PowerUp/Particles Systems/Shine-1-Particles.prefab using Guid(54d548b1a922d54449e2bd5424597d57) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Shine-1-Particles.prefab' (target hash: '6f8a31fb55c1f680f0de1597d0b6ee07') in 0.015759 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Explosions/WFX_Explosion StarSmoke.prefab using Guid(a49596ebf788acd4ab1281bffea444b1) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Explosions/WFX_Explosion StarSmoke.prefab' (target hash: '3e12d701091208d7c5ee6bf170b77d20') in 0.030056 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow9.prefab using Guid(e47736c9193f7dd4d8dc3eef50ba64c0) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow9.prefab' (target hash: '5a7610624f2d3995e6078b24dacfc7d5') in 0.025186 seconds
+Start importing Assets/Space/Prefabs/Prefab10.prefab using Guid(05d8adff78ace1446a04008d1d27ad10) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab10.prefab' (target hash: '833768e588c864634cc45d24498818e6') in 0.018115 seconds
+Start importing Assets/StarSparrow/Prefabs/Modules/StarSparrow_Plasma.prefab using Guid(157f084336ed05c45947433542a2eba2) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/Modules/StarSparrow_Plasma.prefab' (target hash: '690adefce863f63dcdb695e698024329') in 0.018570 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire 1.prefab using Guid(25093a0593dc83043a7bc17ebba0e95d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire 1.prefab' (target hash: '1966ce430c0bc0ecf8ab883c0328bfef') in 0.021016 seconds
+Start importing Assets/StarSparrow/Prefabs/BonusContent/Asteroid Lava Red.prefab using Guid(45b62242ff99b0a48a47f713cd6d1687) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/BonusContent/Asteroid Lava Red.prefab' (target hash: '7bdb6045ac0579e2bb151033c36128d8') in 0.020503 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_Fire Natural Circle (No Smoke).prefab using Guid(55654dc0a2e9e124b914a067ed8bca69) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_Fire Natural Circle (No Smoke).prefab' (target hash: '6945b2b70a298dddb8a802a687d43ac1') in 0.017514 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire pro blue.prefab using Guid(c590b17884b119046bc6412066500b7d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire pro blue.prefab' (target hash: '37dee0205a3968040cc81a61cff23350') in 0.024576 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire pro orange.prefab using Guid(e55149ba6f4d00741984987e258c3378) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire pro orange.prefab' (target hash: '4e887a9c5abcb1cea9432a923646ac50') in 0.024100 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_Fire Natural Circle (Black Smoke).prefab using Guid(06a7735096a49064bac4963673c4f0b3) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_Fire Natural Circle (Black Smoke).prefab' (target hash: '488667a4aee3539a7e29e6b51bfc40a9') in 0.019762 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Big Alt Looped.prefab using Guid(06d796ccd85dc4c4b9c98270196715ae) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Big Alt Looped.prefab' (target hash: 'e3ea547c956fa7bcc81493e04038e0a4') in 0.020163 seconds
+Start importing Assets/Procedural fire/Prefabs/RotatorPS2.prefab using Guid(26255240385821a4185c7163c7a7aec6) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/RotatorPS2.prefab' (target hash: '79c6b89f00aebc812a7b73178c5e6567') in 0.067415 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerBlue.prefab using Guid(0b96cfde923514d4f94409c375d99959) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerBlue.prefab' (target hash: '63b867d7b06815c99da5a017f2de706d') in 0.025052 seconds
+Start importing Assets/Prefabs/Power Up.prefab using Guid(46f2d964848d9cf44a26f06f12b405a8) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/Power Up.prefab' (target hash: '2b981ff1058ea32fd48cd4fbd01ce74d') in 0.025761 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_Fire Natural Broad (Gray Smoke).prefab using Guid(46db5b1dc2de2384da9a75fc063273be) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_Fire Natural Broad (Gray Smoke).prefab' (target hash: '8fe1b325148d1ac6452c773a2335f4dd') in 0.019295 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow13.prefab using Guid(6647bc14b7f253f4aa7ed042ccbd8304) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow13.prefab' (target hash: '6d8444cee73a0fbecab31492aacb5062') in 0.018022 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow11.prefab using Guid(668f40e714e20ed499014cc822acdb9f) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow11.prefab' (target hash: '90126f6685113f026bb3add2ce27a189') in 0.021003 seconds
+Start importing Assets/Prefabs/LazerShotSmall.prefab using Guid(86e300b6881e28345acb2e8553f5edca) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/LazerShotSmall.prefab' (target hash: 'fd2a27f7fd1019e27a92b0cfec170795') in 0.016175 seconds
+Start importing Assets/StarSparrow/Prefabs/BonusContent/Asteroid Lava Blue.prefab using Guid(f603e71ddc270d54192200e95673e2a6) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/BonusContent/Asteroid Lava Blue.prefab' (target hash: '946d8f4942561fa8a3f11b3938ab42f9') in 0.020079 seconds
+Start importing Assets/Space/Prefabs/Prefab4.prefab using Guid(276f86b804eccb3448f2d2c6d1ac0b07) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab4.prefab' (target hash: 'e84bb243fe8acf2949b8a47afe74d1c4') in 0.019542 seconds
+Start importing Assets/Prefabs/AsteroidExplosion.prefab using Guid(67ead55c9da7fe543adde411b077957d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/AsteroidExplosion.prefab' (target hash: '3254ffe8b26d4963a5f2570f986d550b') in 0.022533 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerRed.prefab using Guid(879451a5e2214f143a7edf5dd3e32020) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerRed.prefab' (target hash: '34e135286e3fd67581adb5c7194ffabd') in 0.025111 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_GazFireBig (Black Smoke).prefab using Guid(977bc30ff641de44bbf012f86491b775) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_GazFireBig (Black Smoke).prefab' (target hash: 'eabb7448ebd683257b45ec5b680d1a00') in 0.020786 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow7.prefab using Guid(c79905ec17c169a49b75177b6cf0d524) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow7.prefab' (target hash: '395704a329394f2d7b9edcf0deee33ae') in 0.027221 seconds
+Start importing Assets/Space/Prefabs/Prefab6.prefab using Guid(f7e7d94fc19ab6c44bc9a0a1dffa3876) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab6.prefab' (target hash: '6d33fb5537bedfe1b3781229c178599e') in 0.017496 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire 0.prefab using Guid(08fd1b80cc24cc8439f45fda3c558255) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire 0.prefab' (target hash: '902079a737e23e1fec8d4a51e5eb20fb') in 0.021764 seconds
+Start importing Assets/Space/Prefabs/Prefab8.prefab using Guid(1865df0eea7f3be4392c2343e9c9785e) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab8.prefab' (target hash: '6438ea0efbc97473b762a83c07609587') in 0.017914 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow6.prefab using Guid(38b63c01674358b448b15ee3a56538f5) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow6.prefab' (target hash: 'be7c1366a69e05998b1a5875551b1780') in 0.025347 seconds
+Start importing Assets/StarSparrow/Prefabs/BonusContent/Flying Insect.prefab using Guid(6807a4fbab15c3444aa44ff82bcbe872) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/BonusContent/Flying Insect.prefab' (target hash: 'cb7f589658017a3a47e6c79ab88f64c9') in 0.022009 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow9.prefab using Guid(7861019a7b8cb6f4db5310695263b29a) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow9.prefab' (target hash: '9ab5ad60c3ae2945f5239661a3065cbf') in 0.018653 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire 3.prefab using Guid(78e8b38d431ddef4fa2994a3f2d6e2ff) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire 3.prefab' (target hash: '27f76641c8ecd508af0a6e6cec8061d4') in 0.021128 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_Fire Natural (Black Smoke).prefab using Guid(a817de05addd7b64faa73b34c74013ce) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_Fire Natural (Black Smoke).prefab' (target hash: '5d5eff29a84cd07c6dc32fb02c0da5b6') in 0.019571 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_GazFire (Black Smoke).prefab using Guid(a83e0ffec52c58a47a7af8081a1dab6d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_GazFire (Black Smoke).prefab' (target hash: '062aa53b51e8eb3770648d4677a95b57') in 0.019623 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower.prefab using Guid(b8f9e29cc9e6dcf4387b96b6dacc819e) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower.prefab' (target hash: 'd361e9d1f3d43b98c3395bb1f61f8c1f') in 0.019086 seconds
+Start importing Assets/Prefabs/Asteroid3.prefab using Guid(d8b5191edaea8eb40a16c2a52468be28) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/Asteroid3.prefab' (target hash: 'ee64e3acc397ec8eea3d3922fb5ce31e') in 0.021003 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerYellowDollar.prefab using Guid(f832b09c86bd81e4f91beb978de1ae75) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerYellowDollar.prefab' (target hash: '33b2194d462a52ae650c3a285f3a364b') in 0.024949 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow1.prefab using Guid(f805c7b2f982faf43833878e4f22ae2a) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow1.prefab' (target hash: 'afd3e26cca13ac9dc0ad99fad01e92e7') in 0.019106 seconds
+Start importing Assets/PowerUp/Prefabs/CustomizableParts/PowerUp.prefab using Guid(f8efad34b6fb67641a44679362c8f942) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/CustomizableParts/PowerUp.prefab' (target hash: '043afe4fbffed317f78af48546adf92a') in 0.017904 seconds
+Start importing Assets/Space/Prefabs/Prefab1.prefab using Guid(69322b09a32e0e84b80c408b4827056d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab1.prefab' (target hash: 'e8f8eec520b7dd8613d041488c393037') in 0.017674 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow12.prefab using Guid(79e4c0d1647edb24e82e40e6b4bcaa7b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow12.prefab' (target hash: 'eb6de5d346a2b16a2e915b07b06b99ea') in 0.019774 seconds
+Start importing Assets/StarField/StarField.prefab using Guid(9930946b7c5f48e44aef1e56c2de7315) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarField/StarField.prefab' (target hash: '6f13007069308999fda2ac9ca4f1886e') in 0.017836 seconds
+Start importing Assets/PowerUp/Particles Systems/Spark-3-Particles.prefab using Guid(c9fda59c7a8ae6541ba43453ee86c60e) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Spark-3-Particles.prefab' (target hash: '4a91f35a6d2867f0ca85e2185d21deaa') in 0.015705 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerYellowEuro.prefab using Guid(f9f38f77edcc4364bbe69808863d0c83) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerYellowEuro.prefab' (target hash: 'fe5e7fd21dd2e06019d09fc468ff7fc8') in 0.022520 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerDoubleSpark-1.prefab using Guid(3ac3af0756bb3654690122060f9cef08) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerDoubleSpark-1.prefab' (target hash: '218cca2e19ef52bf820841450b3d71f9') in 0.026563 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow4.prefab using Guid(4a40092bbc207004fa51b938b96005eb) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow4.prefab' (target hash: '8e19596d1ee9b48d5743b25442bf472c') in 0.021729 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow11.prefab using Guid(5a073d16030e9bb4ab4bab71c3124066) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow11.prefab' (target hash: 'dfe9ba03d53389bfbd4cd3cbed608704') in 0.027832 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_Fire SmallFlame (Black Smoke).prefab using Guid(5a4723eba1f3efd4e992d78be01cb3f0) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Black Smoke/WFX_Fire SmallFlame (Black Smoke).prefab' (target hash: 'f5ea90d5a7b8022a73a0f5daeabf9e7a') in 0.019696 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerFlame-1.prefab using Guid(9a8ab42d6f1b3a94e92fe881e0e867c6) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerFlame-1.prefab' (target hash: '39b2259dd0b5fb5d5835807e13e1c690') in 0.022569 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow10.prefab using Guid(9aeb31f3dfa2d3f41af8ea1b97d4a12c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow10.prefab' (target hash: '86d1e933a2db4009c0231e7e3220e0ec') in 0.022865 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow13.prefab using Guid(aa5781bb5b506524782c6e082a5127e9) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow13.prefab' (target hash: '0e93e52304dec3225e5966bf9419e41c') in 0.020347 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerGreen.prefab using Guid(aaf860cd8993a6c4b984c97449417579) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerGreen.prefab' (target hash: 'f8f2ac369989316b2c4d5081327ec39b') in 0.019190 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow2.prefab using Guid(dae7a3955bbf76e409d09988296acacb) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow2.prefab' (target hash: 'af749b2a78314a78cec8b39fe3205b61') in 0.017357 seconds
+Start importing Assets/PowerUp/Particles Systems/Shine-2-Particles.prefab using Guid(da3d18c3ad8d31945abc8592ac7d3693) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Shine-2-Particles.prefab' (target hash: '3a1de1fadc5bfd05773b3b90c644dc37') in 0.016189 seconds
+Start importing Assets/StarSparrow/Prefabs/BonusContent/Mine Sample 2.prefab using Guid(fa8aadfb07ca2034188c69c6f2ab4624) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/BonusContent/Mine Sample 2.prefab' (target hash: '24aef0cbc8834af815f131bfb633698f') in 0.019729 seconds
+Start importing Assets/PowerUp/Particles Systems/Spark-2-Particles.prefab using Guid(0b288b03da9c72b428d8397183f11126) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Spark-2-Particles.prefab' (target hash: '0d6e539fc2fc7d1807e4c0be2c286729') in 0.015571 seconds
+Start importing Assets/Space/Prefabs/Prefab2.prefab using Guid(0b4b2e0fd6d42004fb5ef3e72e0b55e4) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab2.prefab' (target hash: '652610927ead08d777eb750f5c3ea812') in 0.018754 seconds
+Start importing Assets/StarSparrow/Prefabs/BonusContent/Missile.prefab using Guid(8b227e0429c621940acb9e2e8d18d12f) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/BonusContent/Missile.prefab' (target hash: '09ba3b13c9be518f8102ae8f74b50568') in 0.020960 seconds
+Start importing Assets/StarSparrow/Prefabs/StarSparrow10.prefab using Guid(fb80d574ec67a7c4e8ef1a14a65990f6) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/StarSparrow10.prefab' (target hash: '0937882829e891454ec12c61d793cf1e') in 0.019224 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerYellow.prefab using Guid(0c6c6a0e9df04f341be96e061ddbf145) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerYellow.prefab' (target hash: 'f44d8dea16b15aa4735c8ef596e0ce91') in 0.022044 seconds
+Start importing Assets/Prefabs/Asteroid2.prefab using Guid(0c4d4ca6809b2224ebf0fcbca6e9367d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/Asteroid2.prefab' (target hash: '4936a4d80288cf7b0b9e694693274b48') in 0.024025 seconds
+Start importing Assets/Space/Prefabs/Prefab5.prefab using Guid(7c0596d7cf562b345a646e5e9a77f189) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab5.prefab' (target hash: '824ec0017a044215d67b4fa5d113252a') in 0.020116 seconds
+Start importing Assets/StarSparrow/Prefabs/BonusContent/Tinniuq Planet.prefab using Guid(8c22678d7aa562145804b6f0af7e603a) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/BonusContent/Tinniuq Planet.prefab' (target hash: '0a05d414330a1846dbddbf3257e2c95e') in 0.028088 seconds
+Start importing Assets/Space/Prefabs/Prefab7.prefab using Guid(ac0258794ce6d4443a97eae690dcc44b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab7.prefab' (target hash: '61ee31a98fea59ad04c4627780c737a4') in 0.018172 seconds
+Start importing Assets/PowerUp/Particles Systems/Flame-1-Particles.prefab using Guid(bc0290eb454386141a1f4a4cf6a5c25b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Flame-1-Particles.prefab' (target hash: 'fa218410b2a29dece554314345816edb') in 0.014160 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow3.prefab using Guid(dc92f6c59177d3b48834d869261d80b1) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow3.prefab' (target hash: '13ca7d1cfae1c2820db858f4be7ddcb2') in 0.020210 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_Fire Natural Circle (Gray Smoke).prefab using Guid(dc0674a8a869b5043ab6f4155bdd5b02) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_Fire Natural Circle (Gray Smoke).prefab' (target hash: 'b151978b29bcdfc658609920e9aa5764') in 0.021134 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire pro red.prefab using Guid(eca000ab44c908d4dab395f654753038) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire pro red.prefab' (target hash: 'd32920e0e58d228f37a5f4b11fe6f26c') in 0.026300 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow5.prefab using Guid(ec6c320a41b48f448b4f67e0c941f00d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow5.prefab' (target hash: 'bdc3a0a5b2f4f200c42aa913d9c3c7f7') in 0.022547 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_GazFireBig (No Smoke).prefab using Guid(ec8ca459c13886c48b2e9767acbe237b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_GazFireBig (No Smoke).prefab' (target hash: '768cdcdbaf222317e6448a8b078b0393') in 0.018403 seconds
+Start importing Assets/StarSparrow/Prefabs/Modules/StarSparrow_Thruster.prefab using Guid(2d009ca22ab0fc141ade283e835e506a) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/Modules/StarSparrow_Thruster.prefab' (target hash: '7557a870fce84396f33ae9a27211399b') in 0.018893 seconds
+Start importing Assets/Procedural fire/Prefabs/Magic fire pro green.prefab using Guid(3d35e81bdc5955041be098ef22e82a3b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Procedural fire/Prefabs/Magic fire pro green.prefab' (target hash: 'a76bfd323f402bd1fbd8d4d172e5b74b') in 0.026269 seconds
+Start importing Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow7.prefab using Guid(ad19842cc2550fc488240fe1efb03aeb) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/ExamplesModular/StarSparrow7.prefab' (target hash: 'c45b7f227e7984d15ea713463d058baa') in 0.022016 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_GazFireBig (Blue).prefab using Guid(cdd71635203c8ed47a18dcefce87463e) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_GazFireBig (Blue).prefab' (target hash: '66c7282b00ebfa738e83e6d458d29d55') in 0.019493 seconds
+Start importing Assets/StarSparrow/Prefabs/Modules/StarSparrow_Wing_2.prefab using Guid(dde490f5ea9b7d94d9594ec8d6435f29) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/Modules/StarSparrow_Wing_2.prefab' (target hash: 'a0e25f01ed745a6d93bb80f6ec351376') in 0.017298 seconds
+Start importing Assets/Space/Prefabs/Prefab3.prefab using Guid(dd5cc5afc7a95424ba3a817d78c1642f) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Space/Prefabs/Prefab3.prefab' (target hash: 'dd60347b86d03c0317d2442daaccba39') in 0.018098 seconds
+Start importing Assets/Prefabs/EnemyShot.prefab using Guid(ed2a4e33f6daefb4f8cb2e87db85305f) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/EnemyShot.prefab' (target hash: '479b64cf67dd9b9043bb4e5b91866452') in 0.025659 seconds
+Start importing Assets/Standard Assets/Characters/FirstPersonCharacter/Prefabs/FPSController.prefab using Guid(5e9e851c0e142814dac026a256ba2ac0) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Standard Assets/Characters/FirstPersonCharacter/Prefabs/FPSController.prefab' (target hash: '080cf36b1ecbc6f9729a355d1cf3480c') in 0.020270 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Big Alt.prefab using Guid(aedd4bb62ac8dfd48ae575c52e6e4267) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/WFX_FlameThrower Big Alt.prefab' (target hash: '06aa947d630a62c8555d1ec25b81276c') in 0.019849 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_GazFire (No Smoke).prefab using Guid(ce4491e862939974997f1e487c3ea84b) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_GazFire (No Smoke).prefab' (target hash: '4e0fd4d3ff2b646d38ed79eb03724dbb') in 0.019723 seconds
+Start importing Assets/StarSparrow/Prefabs/Modules/StarSparrow_Weapon.prefab using Guid(1f78031b7183f2a4498c4cfc761ca60c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/Modules/StarSparrow_Weapon.prefab' (target hash: '4a1605c9d3d1ee4b112f80f834f2b82d') in 0.018896 seconds
+Start importing Assets/PowerUp/Particles Systems/Flame-2-Particles.prefab using Guid(4f4be043c2b5a1a46afe89967b785ab1) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Particles Systems/Flame-2-Particles.prefab' (target hash: '0467b175646915a99b69473513d2f434') in 0.015862 seconds
+Start importing Assets/StarSparrow/Prefabs/BonusContent/Mine Sample 1.prefab using Guid(5f7d5f60379571b4ab916f85aae80a71) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/StarSparrow/Prefabs/BonusContent/Mine Sample 1.prefab' (target hash: 'a1f2782270a07690cdd83febc4930e24') in 0.021265 seconds
+Start importing Assets/PowerUp/Prefabs/PowerUpContainerDoubleSpark-2.prefab using Guid(8f2875655f485be4d8438962a9d306bc) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/PowerUp/Prefabs/PowerUpContainerDoubleSpark-2.prefab' (target hash: '1b95ac3079e143036fa36f190521aea9') in 0.018786 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_GazFire (Gray Smoke).prefab using Guid(8f4c8e6e19f6811488df5bbe56510f9d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_GazFire (Gray Smoke).prefab' (target hash: 'f3a758b8a7e16b069401b4ead88f64c1') in 0.022050 seconds
+Start importing Assets/Prefabs/Boss.prefab using Guid(9f31a10cb16d4b9e9a7f5c806c59e40d) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/Boss.prefab' (target hash: '19e1af6049c3d62bfdf3010eea448589') in 0.030423 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_Fire SmallFlame (No Smoke).prefab using Guid(9fdb9361d90a0c64688ffb3004e8682c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_Fire SmallFlame (No Smoke).prefab' (target hash: '96ec4da4db6b7acd16fee7d5816c2345') in 0.017708 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_Fire Natural Broad (No Smoke).prefab using Guid(cfa5cd38b0eeb5d45aafdbe57871168c) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/No Smoke/WFX_Fire Natural Broad (No Smoke).prefab' (target hash: 'f419a3b625748fdcb97bed92918a9753') in 0.019126 seconds
+Start importing Assets/Prefabs/PlayerExplosion.prefab using Guid(efe0044efdbff7c4a9b01ae8437cecaf) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/Prefabs/PlayerExplosion.prefab' (target hash: '3deca04b3afc7814101de4b800381c1a') in 0.023549 seconds
+Start importing Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_Fire SmallFlame (Gray Smoke).prefab using Guid(ff2aa30ecb40c1b4ea64a518c1d943f1) Importer(-1,00000000000000000000000000000000)
+Done importing asset: 'Assets/ExplosionEffects/WarFX/_Effects/Fire/Gray Smoke/WFX_Fire SmallFlame (Gray Smoke).prefab' (target hash: 'b9be03f97386ee9167f415d6bf5cd7af') in 0.022491 seconds
+Refreshing native plugins compatible for Editor in 0.15 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Refresh completed in 31.220321 seconds.
+RefreshInfo: RefreshV2(ForceSynchronousImport)
+RefreshProfiler: Total: 0.000ms
+	InvokeBeforeRefreshCallbacks: 31220.277ms
+	ApplyChangesToAssetFolders: 0.265ms
+	WriteModifiedImportersToTextMetaFiles: 0.036ms
+	CleanLegacyArtifacts: 0.000ms
+	Scan: 0.000ms
+	OnSourceAssetsModified: 22.013ms
+	UnregisterDeletedAssets: 0.000ms
+	InitializeImportedAssetsSnapshot: 0.000ms
+	GetAllGuidsForCategorization: 1.474ms
+	CategorizeAssets: 0.043ms
+	ImportAndPostprocessOutOfDateAssets: 138.137ms (31049.187ms without children)
+		ImportManagerImport: 0.938ms (30069.370ms without children)
+			ImportInProcess: 18.207ms
+			ImportOutOfProcess: 30050.648ms
+			UpdateCategorizedAssets: 0.000ms
+			RemoteAssetCacheGetArtifact: 0.514ms (0.000ms without children)
+				RemoteAssetCacheResolve: 0.000ms
+				RemoteAssetCacheDownloadFile: 0.000ms
+		CompileScripts: 0.000ms
+		PostProcessAllAssets: 0.000ms
+		ReloadImportedAssets: 976.180ms
+		VerifyAssetsAreUpToDateAndCorrect: 0.141ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.000ms
+		InitializingProgressBar: 0.141ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 0.155ms
+		RestoreLoadedAssetsState: 0.308ms
+	InvokeProjectHasChanged: 0.604ms
+	UpdateImportedAssetsSnapshot: 0.000ms
+	ReloadSourceAssets: 1.349ms
+	UnloadImportedAssets: 0.210ms
+	Hotreload: 0.048ms
+	FixTempGuids: 5.962ms
+	VerifyGuidPMRegistrations: 0.007ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.090ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 0.004ms
+	GetLoadedSourceAssetsSnapshot: 0.253ms
+	PersistCurrentRevisions: 1.222ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 1.135ms
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+RefreshInfo: StopAssetImportingV2(ForceSynchronousImport)
+RefreshProfiler: Total: 0.000ms
+	InvokeBeforeRefreshCallbacks: 9.913ms
+	ApplyChangesToAssetFolders: 0.223ms
+	WriteModifiedImportersToTextMetaFiles: 0.038ms
+	CleanLegacyArtifacts: 0.000ms
+	Scan: 0.000ms
+	OnSourceAssetsModified: 6.718ms
+	UnregisterDeletedAssets: 0.000ms
+	InitializeImportedAssetsSnapshot: 0.000ms
+	GetAllGuidsForCategorization: 1.407ms
+	CategorizeAssets: 0.000ms
+	ImportAndPostprocessOutOfDateAssets: 0.000ms (0.000ms without children)
+		ImportManagerImport: 0.000ms (0.000ms without children)
+			ImportInProcess: 0.000ms
+			ImportOutOfProcess: 0.000ms
+			UpdateCategorizedAssets: 0.000ms
+			RemoteAssetCacheGetArtifact: 0.000ms (0.000ms without children)
+				RemoteAssetCacheResolve: 0.000ms
+				RemoteAssetCacheDownloadFile: 0.000ms
+		CompileScripts: 0.000ms
+		PostProcessAllAssets: 0.000ms
+		ReloadImportedAssets: 0.000ms
+		VerifyAssetsAreUpToDateAndCorrect: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.000ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.000ms
+		RestoreLoadedAssetsState: 0.000ms
+	InvokeProjectHasChanged: 0.000ms
+	UpdateImportedAssetsSnapshot: 0.000ms
+	ReloadSourceAssets: 0.000ms
+	UnloadImportedAssets: 0.000ms
+	Hotreload: 0.000ms
+	FixTempGuids: 0.041ms
+	VerifyGuidPMRegistrations: 0.008ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.110ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 0.095ms
+	GetLoadedSourceAssetsSnapshot: 0.403ms
+	PersistCurrentRevisions: 0.331ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 0.011ms
+Refresh completed in 0.034041 seconds.
+RefreshInfo: RefreshV2(NoUpdateAssetOptions)
+RefreshProfiler: Total: 0.000ms
+	InvokeBeforeRefreshCallbacks: 34.010ms
+	ApplyChangesToAssetFolders: 0.300ms
+	WriteModifiedImportersToTextMetaFiles: 0.038ms
+	CleanLegacyArtifacts: 0.000ms
+	Scan: 0.000ms
+	OnSourceAssetsModified: 19.135ms
+	UnregisterDeletedAssets: 0.000ms
+	InitializeImportedAssetsSnapshot: 0.000ms
+	GetAllGuidsForCategorization: 1.543ms
+	CategorizeAssets: 0.044ms
+	ImportAndPostprocessOutOfDateAssets: 9.739ms (1.450ms without children)
+		ImportManagerImport: 0.485ms (0.000ms without children)
+			ImportInProcess: 0.000ms
+			ImportOutOfProcess: 0.000ms
+			UpdateCategorizedAssets: 0.000ms
+			RemoteAssetCacheGetArtifact: 0.000ms (0.000ms without children)
+				RemoteAssetCacheResolve: 0.000ms
+				RemoteAssetCacheDownloadFile: 0.000ms
+		CompileScripts: 0.000ms
+		PostProcessAllAssets: 0.000ms
+		ReloadImportedAssets: 0.000ms
+		VerifyAssetsAreUpToDateAndCorrect: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.000ms
+		InitializingProgressBar: 0.138ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.082ms
+		RestoreLoadedAssetsState: 0.102ms
+	InvokeProjectHasChanged: 0.643ms
+	UpdateImportedAssetsSnapshot: 0.000ms
+	ReloadSourceAssets: 0.000ms
+	UnloadImportedAssets: 0.472ms
+	Hotreload: 0.059ms
+	FixTempGuids: 0.035ms
+	VerifyGuidPMRegistrations: 0.004ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.117ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 0.022ms
+	GetLoadedSourceAssetsSnapshot: 0.272ms
+	PersistCurrentRevisions: 0.985ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 0.006ms
+Refresh completed in 0.031362 seconds.
+RefreshInfo: RefreshV2(NoUpdateAssetOptions)
+RefreshProfiler: Total: 0.000ms
+	InvokeBeforeRefreshCallbacks: 31.350ms
+	ApplyChangesToAssetFolders: 0.262ms
+	WriteModifiedImportersToTextMetaFiles: 0.038ms
+	CleanLegacyArtifacts: 0.000ms
+	Scan: 0.000ms
+	OnSourceAssetsModified: 17.915ms
+	UnregisterDeletedAssets: 0.000ms
+	InitializeImportedAssetsSnapshot: 0.000ms
+	GetAllGuidsForCategorization: 1.152ms
+	CategorizeAssets: 0.044ms
+	ImportAndPostprocessOutOfDateAssets: 9.161ms (1.340ms without children)
+		ImportManagerImport: 0.424ms (0.000ms without children)
+			ImportInProcess: 0.000ms
+			ImportOutOfProcess: 0.000ms
+			UpdateCategorizedAssets: 0.000ms
+			RemoteAssetCacheGetArtifact: 0.000ms (0.000ms without children)
+				RemoteAssetCacheResolve: 0.000ms
+				RemoteAssetCacheDownloadFile: 0.000ms
+		CompileScripts: 0.000ms
+		PostProcessAllAssets: 0.000ms
+		ReloadImportedAssets: 0.000ms
+		VerifyAssetsAreUpToDateAndCorrect: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.000ms
+		InitializingProgressBar: 0.127ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.080ms
+		RestoreLoadedAssetsState: 0.087ms
+	InvokeProjectHasChanged: 0.622ms
+	UpdateImportedAssetsSnapshot: 0.000ms
+	ReloadSourceAssets: 0.000ms
+	UnloadImportedAssets: 0.415ms
+	Hotreload: 0.044ms
+	FixTempGuids: 0.022ms
+	VerifyGuidPMRegistrations: 0.003ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.091ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 0.005ms
+	GetLoadedSourceAssetsSnapshot: 0.291ms
+	PersistCurrentRevisions: 0.889ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 0.006ms
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Initializing Unity extensions:
+ 'C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll'  GUID: 4ba2329b63d54f0187bcaa12486b1b0f
+Unloading 68 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 47.5 MB.
+System memory in use after: 46.5 MB.
+
+Unloading 325 unused Assets to reduce memory usage. Loaded Objects now: 1434.
+Total: 2.661500 ms (FindLiveObjects: 0.275100 ms CreateObjectMapping: 0.026700 ms MarkObjects: 1.601500 ms  DeleteObjects: 0.757600 ms)
+
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Batchmode quit successfully invoked - shutting down!
+[Performance] WinEditorMain                                               :        1 samples, Peak.  1.37 s (1.0x), Avg.  1.37 s, Total. 1.373 s (3.6%)
+[Performance] WinEditorMain.ConfigureCrashHandler                         :        1 samples, Peak.  16.9 us (1.0x), Avg.  16.9 us, Total. 16.90 us (0.0%)
+[Performance] WinEditorMain.CurlRequestInitialize                         :        1 samples, Peak.  1.28 ms (1.0x), Avg.  1.28 ms, Total. 1.278 ms (0.0%)
+[Performance] WinEditorMain.SetupLogFile                                  :        1 samples, Peak.   299 us (1.0x), Avg.   299 us, Total. 299.5 us (0.0%)
+[Performance] WinEditorMain.RunNativeTestsIfRequiredAndExit               :        1 samples, Peak.  2.60 us (1.0x), Avg.  2.60 us, Total. 2.600 us (0.0%)
+[Performance] WinEditorMain.Licensing                                     :        1 samples, Peak.  1.35 s (1.0x), Avg.  1.35 s, Total. 1.355 s (3.6%)
+[Performance] WinEditorMain.InitializeCrashHandler                        :        1 samples, Peak.  16.1 ms (1.0x), Avg.  16.1 ms, Total. 16.08 ms (0.0%)
+[Performance] WinEditorMain.CreateApplication                             :        1 samples, Peak.   111 us (1.0x), Avg.   111 us, Total. 111.0 us (0.0%)
+[Performance] Application.InitializeProject                               :        1 samples, Peak.  36.3 s (1.0x), Avg.  36.3 s, Total. 36.30 s (96.1%)
+[Performance] Application.PackageManager.StartServer                      :        1 samples, Peak.  2.54 ms (1.0x), Avg.  2.54 ms, Total. 2.538 ms (0.0%)
+[Performance] Application.IsBrowserCacheEmpty                             :        1 samples, Peak.   439 us (1.0x), Avg.   439 us, Total. 439.0 us (0.0%)
+[Performance] Application.AcquireProjectLock                              :        1 samples, Peak.  7.15 ms (1.0x), Avg.  7.15 ms, Total. 7.151 ms (0.0%)
+[Performance] Application.InitializeEngineNoGraphics                      :        1 samples, Peak.  11.0 ms (1.0x), Avg.  11.0 ms, Total. 11.03 ms (0.0%)
+[Performance] Application.PackageManager.Initialize                       :        1 samples, Peak.  1.08 s (1.0x), Avg.  1.08 s, Total. 1.078 s (2.9%)
+[Performance] CurlRequestCheck                                            :       18 samples, Peak.  59.9 us (2.7x), Avg.  22.4 us, Total. 402.9 us (0.0%)
+[Performance] PackageManager::RunRequestSynchronously                     :        6 samples, Peak.  56.2 us (2.6x), Avg.  21.9 us, Total. 131.2 us (0.0%)
+[Performance] Application.EngineGraphics.Initialize                       :        1 samples, Peak.   182 ms (1.0x), Avg.   182 ms, Total. 181.9 ms (0.5%)
+[Performance] Application.GI.Initialize                                   :        1 samples, Peak.   313 ms (1.0x), Avg.   313 ms, Total. 313.5 ms (0.8%)
+[Performance] Application.LoadAllDefaultResourcesFromEditor               :        1 samples, Peak.  2.22 ms (1.0x), Avg.  2.22 ms, Total. 2.224 ms (0.0%)
+[Performance] Application.LoadMonoAssemblies                              :        1 samples, Peak.  1.36 s (1.0x), Avg.  1.36 s, Total. 1.360 s (3.6%)
+[Performance] ProcessService.EditorAfterLoadAllAssemblies                 :        2 samples, Peak.  15.9 ms (1.1x), Avg.  14.3 ms, Total. 28.69 ms (0.1%)
+[Performance] Application.ReadLicenseInfo                                 :        1 samples, Peak.  1.43 ms (1.0x), Avg.  1.43 ms, Total. 1.431 ms (0.0%)
+[Performance] Application.InitialScriptRefresh                            :        1 samples, Peak.   875 ms (1.0x), Avg.   875 ms, Total. 875.0 ms (2.3%)
+[Performance] Application.AssetDatabase.Refresh                           :        1 samples, Peak.  31.2 s (1.0x), Avg.  31.2 s, Total. 31.22 s (82.7%)
+[Performance] BuildCatalog                                                :        1 samples, Peak.  30.9 ms (1.0x), Avg.  30.9 ms, Total. 30.92 ms (0.1%)
+[Performance] Application.ImportAssetsWithMismatchingAssetImporterVersion :        1 samples, Peak.  66.9 ms (1.0x), Avg.  66.9 ms, Total. 66.94 ms (0.2%)
+[Performance] Application.SyncCurrentColorSpace                           :        1 samples, Peak.   625 ms (1.0x), Avg.   625 ms, Total. 625.1 ms (1.7%)
+[Performance] Application.OnUsbDevicesChanged                             :        1 samples, Peak.  1.85 ms (1.0x), Avg.  1.85 ms, Total. 1.846 ms (0.0%)
+[Performance] Application.AssetInstanceCacheUpdate                        :        1 samples, Peak.   200 ns (1.0x), Avg.   200 ns, Total. 200.0 ns (0.0%)
+[Performance] Application.UnityExtensions.Initialize                      :        1 samples, Peak.   593 us (1.0x), Avg.   593 us, Total. 593.0 us (0.0%)
+[Performance] Application.InitializeManagedCompilationPipeline            :        1 samples, Peak.  24.9 ms (1.0x), Avg.  24.9 ms, Total. 24.89 ms (0.1%)
+[Performance] Application.ExecuteStartups                                 :        1 samples, Peak.  5.66 ms (1.0x), Avg.  5.66 ms, Total. 5.664 ms (0.0%)
+[Performance] Application.RebuildOSMenu                                   :        1 samples, Peak.  24.4 ms (1.0x), Avg.  24.4 ms, Total. 24.39 ms (0.1%)
+[Performance] Application.editorInitializingProject                       :        1 samples, Peak.  18.6 us (1.0x), Avg.  18.6 us, Total. 18.60 us (0.0%)
+[Performance] GUIView.RepaintAll.PlayerLoopController                     :        1 samples, Peak.  1000 ns (1.0x), Avg.  1000 ns, Total. 1000.0 ns (0.0%)
+[Performance] Application.InvokeFinishedLoadingProject                    :        1 samples, Peak.  16.3 ms (1.0x), Avg.  16.3 ms, Total. 16.31 ms (0.0%)
+[Performance] ProcessService.OnProjectLoaded                              :        1 samples, Peak.  14.8 ms (1.0x), Avg.  14.8 ms, Total. 14.77 ms (0.0%)
+Refresh completed in 0.023368 seconds.
+RefreshInfo: RefreshV2(ForceSynchronousImport)
+RefreshProfiler: Total: 0.000ms
+	InvokeBeforeRefreshCallbacks: 23.355ms
+	ApplyChangesToAssetFolders: 0.213ms
+	WriteModifiedImportersToTextMetaFiles: 0.039ms
+	CleanLegacyArtifacts: 0.000ms
+	Scan: 0.000ms
+	OnSourceAssetsModified: 20.775ms
+	UnregisterDeletedAssets: 0.000ms
+	InitializeImportedAssetsSnapshot: 0.000ms
+	GetAllGuidsForCategorization: 1.158ms
+	CategorizeAssets: 0.000ms
+	ImportAndPostprocessOutOfDateAssets: 0.000ms (0.000ms without children)
+		ImportManagerImport: 0.000ms (0.000ms without children)
+			ImportInProcess: 0.000ms
+			ImportOutOfProcess: 0.000ms
+			UpdateCategorizedAssets: 0.000ms
+			RemoteAssetCacheGetArtifact: 0.000ms (0.000ms without children)
+				RemoteAssetCacheResolve: 0.000ms
+				RemoteAssetCacheDownloadFile: 0.000ms
+		CompileScripts: 0.000ms
+		PostProcessAllAssets: 0.000ms
+		ReloadImportedAssets: 0.000ms
+		VerifyAssetsAreUpToDateAndCorrect: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.000ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.000ms
+		RestoreLoadedAssetsState: 0.000ms
+	InvokeProjectHasChanged: 0.000ms
+	UpdateImportedAssetsSnapshot: 0.000ms
+	ReloadSourceAssets: 0.000ms
+	UnloadImportedAssets: 0.000ms
+	Hotreload: 0.000ms
+	FixTempGuids: 0.019ms
+	VerifyGuidPMRegistrations: 0.006ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.113ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 0.063ms
+	GetLoadedSourceAssetsSnapshot: 0.244ms
+	PersistCurrentRevisions: 0.296ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 0.007ms
+Refresh completed in 0.022111 seconds.
+RefreshInfo: RefreshV2(ForceSynchronousImport)
+RefreshProfiler: Total: 0.000ms
+	InvokeBeforeRefreshCallbacks: 22.092ms
+	ApplyChangesToAssetFolders: 0.380ms
+	WriteModifiedImportersToTextMetaFiles: 0.051ms
+	CleanLegacyArtifacts: 0.000ms
+	Scan: 0.000ms
+	OnSourceAssetsModified: 19.162ms
+	UnregisterDeletedAssets: 0.000ms
+	InitializeImportedAssetsSnapshot: 0.000ms
+	GetAllGuidsForCategorization: 1.318ms
+	CategorizeAssets: 0.000ms
+	ImportAndPostprocessOutOfDateAssets: 0.000ms (0.000ms without children)
+		ImportManagerImport: 0.000ms (0.000ms without children)
+			ImportInProcess: 0.000ms
+			ImportOutOfProcess: 0.000ms
+			UpdateCategorizedAssets: 0.000ms
+			RemoteAssetCacheGetArtifact: 0.000ms (0.000ms without children)
+				RemoteAssetCacheResolve: 0.000ms
+				RemoteAssetCacheDownloadFile: 0.000ms
+		CompileScripts: 0.000ms
+		PostProcessAllAssets: 0.000ms
+		ReloadImportedAssets: 0.000ms
+		VerifyAssetsAreUpToDateAndCorrect: 0.000ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.000ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.000ms
+		RestoreLoadedAssetsState: 0.000ms
+	InvokeProjectHasChanged: 0.000ms
+	UpdateImportedAssetsSnapshot: 0.000ms
+	ReloadSourceAssets: 0.000ms
+	UnloadImportedAssets: 0.000ms
+	Hotreload: 0.000ms
+	FixTempGuids: 0.014ms
+	VerifyGuidPMRegistrations: 0.005ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.000ms
+	UnloadStreamsBegin: 0.171ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 0.016ms
+	GetLoadedSourceAssetsSnapshot: 0.247ms
+	PersistCurrentRevisions: 0.303ms
+	UnloadStreamsEnd: 0.000ms
+	GenerateScriptTypeHashes: 0.007ms
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -68,6 +68,9 @@ MonoBehaviour:
     type: 3}
   lazerGun: {fileID: 3811837705200760543}
   shotDelay: 0.7
+  isBoss: 0
+  hitPoints: 1
+  damage: 1
 --- !u!54 &-7741110017048690765
 Rigidbody:
   m_ObjectHideFlags: 0

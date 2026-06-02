@@ -81,7 +81,16 @@ public class PLayerScript : MonoBehaviour
             }
             return;
         }
-        hp--;
+        int damage = 1;
+        DamageDealerScript damageDealer = other.GetComponent<DamageDealerScript>();
+        if (damageDealer != null)
+            damage = damageDealer.damage;
+
+        EnemyScript enemy = other.GetComponent<EnemyScript>();
+        if (enemy != null)
+            damage = enemy.damage;
+
+        hp -= damage;
         //Если были щиты, то выключаем их
         if (hp == 0)
         {

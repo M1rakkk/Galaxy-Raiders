@@ -7,6 +7,9 @@ public class EnemyScript : MonoBehaviour
     public GameObject lazerShot;
     public Transform lazerGun;
     public float shotDelay;
+    public bool isBoss = false;
+    public int hitPoints = 1;
+    public int damage = 1;
     float nextShotTime;
     Rigidbody enemyShip;
     float speed;
@@ -16,7 +19,14 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         enemyShip = GetComponent<Rigidbody>();
-        speed = Random.Range(minSpeed, maxSpeed);
+        float speedMultiplier = 1f;
+        if (GameControllerScript.instance != null && !isBoss)
+        {
+            speedMultiplier = GameControllerScript.instance.GetEnemySpeedMultiplier();
+            damage = GameControllerScript.instance.GetEnemyDamage();
+        }
+
+        speed = Random.Range(minSpeed, maxSpeed) * speedMultiplier;
         enemyShip.velocity = new Vector3(0, 0, - speed);
         enemyShip.transform.rotation = Quaternion.Euler(0, 180, 0);
         lastPosition = enemyShip.transform.position;
@@ -26,7 +36,7 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         //Поиск противника
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == true)
         { 
             //Определяем вектор перемещений до противника и текущего перемещения
@@ -43,6 +53,10 @@ public class EnemyScript : MonoBehaviour
             {
                 GameObject lazerEnemyShot = Instantiate(lazerShot, lazerGun.position, Quaternion.identity);                
                 lazerEnemyShot.GetComponent<Rigidbody>().velocity = playerDirection / playerDirection.magnitude * 50;
+                DamageDealerScript damageDealer = lazerEnemyShot.GetComponent<DamageDealerScript>();
+                if (damageDealer == null)
+                    damageDealer = lazerEnemyShot.AddComponent<DamageDealerScript>();
+                damageDealer.damage = damage;
                 angle = Vector3.SignedAngle(Vector3.back, playerDirection, Vector3.up);
                 lazerEnemyShot.transform.Rotate(0, angle, 0);
                 nextShotTime = Time.time + shotDelay;
@@ -64,13 +78,21 @@ public class EnemyScript : MonoBehaviour
         
         if (other.tag == "GameBoundary" || other.tag == "LazerEnemyShot" || other.tag == "PowerUp")
             return;
-        Instantiate(playerExplosion, transform.position, Quaternion.identity);            
-        Destroy(gameObject);
         
         if (other.tag == "LazerShot")
         {
             Destroy(other.gameObject);
-            GameControllerScript.instance.increaseScore(1);
+            hitPoints--;
+
+            if (hitPoints > 0)
+                return;
+
+            if (GameControllerScript.instance != null)
+                GameControllerScript.instance.EnemyDestroyed(isBoss);
         }
-    }
+
+        Instantiate(playerExplosion, transform.position, Quaternion.identity);            
+        Destroy(gameObject);
+
+    }    
 }
