@@ -20,12 +20,18 @@ public class PLayerScript : MonoBehaviour
     public float shotDelay; //задержка по времени выстрела
     public int maxShieldSize; //размер щита
     public Text text; //текст
+
+    [Header("Health")]
+    public int maxHp = 100;
+    public Slider hpSlider;
+    int currentHp;
+
     float nextShotTime; //время основного выстрела
     float nextShotSmallTime; //время бокового выстрела
     Rigidbody playerShip; //объект корабля
     Vector3 startPosition; //начальная позиция для возврата из меню и revive
     Quaternion startRotation; //начальный поворот для возврата из меню и revive
-    int hp = 0; //жизни
+    int shieldCount = 0; //количество щитов (бывш. hp)
     bool isReviveInvulnerable;
     bool reviveShieldActive;
     Coroutine reviveInvulnerabilityCoroutine;
@@ -36,6 +42,23 @@ public class PLayerScript : MonoBehaviour
         playerShip = GetComponent<Rigidbody>();
         startPosition = transform.position;
         startRotation = transform.rotation;
+        currentHp = maxHp;
+        
+        if (hpSlider == null && GameControllerScript.instance != null)
+        {
+            hpSlider = GameControllerScript.instance.playerHpSlider;
+        }
+        
+        UpdateHpBar();
+    }
+
+    void UpdateHpBar()
+    {
+        if (hpSlider != null)
+        {
+            hpSlider.maxValue = maxHp;
+            hpSlider.value = currentHp;
+        }
     }
 
     // Update is called once per frame
@@ -82,9 +105,9 @@ public class PLayerScript : MonoBehaviour
         //Если подобрали бонус
         if (other.tag == "PowerUp")
         {
-            hp ++;
+            shieldCount ++;
             //Если не были установлены щиты, то включаем их 
-            if (hp == 1)
+            if (shieldCount == 1)
             {
                 SetShieldScale(maxShieldSize, 2);
             }
@@ -107,19 +130,28 @@ public class PLayerScript : MonoBehaviour
             incomingDamage = Mathf.Max(1, source.damage);
         }
 
-        hp -= incomingDamage;
-        //Если были щиты, то выключаем их
-        if (hp == 0)
+        if (shieldCount > 0)
         {
-            SetShieldScale(0, 0);
+            shieldCount--;
+            if (shieldCount == 0)
+            {
+                SetShieldScale(0, 0);
+            }
             Destroy(other.gameObject);
             return;
         }
+
+        currentHp -= incomingDamage;
+        UpdateHpBar();
+
         //Если жизни закончились
-        if (hp < 0)
+        if (currentHp <= 0)
         {
             Instantiate(playerExplosion, transform.position, Quaternion.identity);
-            Destroy(other.gameObject);
+            if (other.gameObject.tag != "Player") // Don't destroy yourself if colliding with something? Wait, other is the enemy/shot
+            {
+                Destroy(other.gameObject);
+            }
             GameControllerScript.instance.ShowGameOver(gameObject);
             gameObject.SetActive(false);
         }
@@ -134,7 +166,9 @@ public class PLayerScript : MonoBehaviour
     public void ResetPlayer()
     {
         gameObject.SetActive(true);
-        hp = 0;
+        shieldCount = 0;
+        currentHp = maxHp;
+        UpdateHpBar();
 
         if (playerShip == null)
         {
@@ -188,7 +222,7 @@ public class PLayerScript : MonoBehaviour
         isReviveInvulnerable = false;
         reviveShieldActive = false;
 
-        if (hp <= 0)
+        if (shieldCount <= 0)
         {
             SetShieldScale(0, 0);
         }

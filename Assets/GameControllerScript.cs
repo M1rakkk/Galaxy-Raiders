@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -32,6 +32,7 @@ public class GameControllerScript : MonoBehaviour
     public Text scoreText;
     public Button startButton;
     public GameObject menu;
+    public Slider playerHpSlider;
 
     [Header("Main Menu")]
     public Text mainTitleText;
@@ -74,9 +75,9 @@ public class GameControllerScript : MonoBehaviour
     [SerializeField] float enemySpeedMultiplierLevel1 = 1f;
     [SerializeField] float enemySpeedMultiplierLevel2 = 1.25f;
     [SerializeField] float enemySpeedMultiplierLevel3 = 1.35f;
-    [SerializeField] int enemyDamageLevel1 = 1;
-    [SerializeField] int enemyDamageLevel2 = 2;
-    [SerializeField] int enemyDamageLevel3 = 3;
+    [SerializeField] int enemyDamageLevel1 = 10;
+    [SerializeField] int enemyDamageLevel2 = 10;
+    [SerializeField] int enemyDamageLevel3 = 10;
     [SerializeField] float minSpawnDelayLevel1 = 0.20f;
     [SerializeField] float maxSpawnDelayLevel1 = 0.80f;
     [SerializeField] float minSpawnDelayLevel2 = 0.12f;
@@ -116,6 +117,7 @@ public class GameControllerScript : MonoBehaviour
         }
 
         UpdateScoreText();
+        ResetPlayer();
         SetUiState(GameUiState.MainMenu);
 
         ResetDifficultyProgress();
@@ -749,6 +751,11 @@ public class GameControllerScript : MonoBehaviour
         SetPanelActive(gameOverPanel, state == GameUiState.GameOver);
         SetPanelActive(victoryPanel, state == GameUiState.Victory);
 
+        if (playerHpSlider != null)
+        {
+            playerHpSlider.gameObject.SetActive(state == GameUiState.Playing || state == GameUiState.Paused || state == GameUiState.GameOver);
+        }
+
         if (state != GameUiState.Playing)
         {
             HideControlHint();
@@ -916,6 +923,7 @@ public class GameControllerScript : MonoBehaviour
 
         if (player != null)
         {
+            player.hpSlider = playerHpSlider;
             player.ResetPlayer();
             playerForRevive = player.gameObject;
         }
@@ -998,6 +1006,55 @@ public class GameControllerScript : MonoBehaviour
             previousResultsText = CreateText(victoryPanel.transform, "PreviousResultsText", "Previous results:", 24, new Vector2(420f, 180f), new Vector2(0f, -15f));
             victoryMainMenuButton = CreateButton(victoryPanel.transform, "VictoryMainMenuButton", "MAIN MENU", -180f);
         }
+
+        if (playerHpSlider == null)
+        {
+            playerHpSlider = CreatePlayerHpBar(canvas.transform);
+        }
+    }
+
+    Slider CreatePlayerHpBar(Transform parent)
+    {
+        GameObject sliderObject = CreateUiObject("PlayerHpSlider", parent);
+        RectTransform sliderTransform = sliderObject.GetComponent<RectTransform>();
+
+        sliderTransform.anchorMin = new Vector2(0f, 0f);
+        sliderTransform.anchorMax = new Vector2(0f, 0f);
+        sliderTransform.pivot = new Vector2(0f, 0f);
+        sliderTransform.anchoredPosition = new Vector2(24f, 82f);
+        sliderTransform.sizeDelta = new Vector2(200f, 12f);
+
+        Slider slider = sliderObject.AddComponent<Slider>();
+        slider.minValue = 0f;
+        slider.maxValue = 100f;
+        slider.value = 100f;
+        slider.wholeNumbers = true;
+        slider.interactable = false;
+
+        Image background = CreateImage(sliderObject.transform, "Background", new Color(0.05f, 0.05f, 0.05f, 0.75f));
+        StretchToParent(background.rectTransform);
+
+        RectTransform fillArea = CreateUiObject("Fill Area", sliderObject.transform).GetComponent<RectTransform>();
+        StretchToParent(fillArea);
+        fillArea.offsetMax = new Vector2(-1f, -1f);
+        fillArea.offsetMin = new Vector2(1f, 1f);
+
+        Image fill = CreateImage(fillArea, "Fill", new Color(0.85f, 0.15f, 0.15f, 0.95f));
+        StretchToParent(fill.rectTransform);
+
+        slider.fillRect = fill.rectTransform;
+
+        Text label = CreateText(sliderObject.transform, "HpLabel", "HULL INTEGRITY", 14, new Vector2(160f, 20f), new Vector2(0f, 16f));
+        label.alignment = TextAnchor.LowerLeft;
+        label.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        RectTransform labelRt = label.GetComponent<RectTransform>();
+        labelRt.anchorMin = new Vector2(0f, 1f);
+        labelRt.anchorMax = new Vector2(0f, 1f);
+        labelRt.pivot = new Vector2(0f, 0f);
+        labelRt.anchoredPosition = new Vector2(0f, 2f);
+        AddTextShadow(label, new Color(0f, 0f, 0f, 0.5f), new Vector2(1f, -1f));
+
+        return slider;
     }
 
     Canvas FindCanvas()

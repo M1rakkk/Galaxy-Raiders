@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class AsteroidScript : MonoBehaviour
 {
@@ -18,6 +18,9 @@ public class AsteroidScript : MonoBehaviour
         asteroid.velocity = new Vector3(0, 0, - speed);
         size = Random.Range(minSize, maxSize);
         asteroid.transform.localScale *= size;
+
+        DamageSource source = gameObject.AddComponent<DamageSource>();
+        source.damage = 10;
     }
 
     // OnTriggerEnter is called in collision with object
