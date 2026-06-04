@@ -195,6 +195,12 @@ public class PLayerScript : MonoBehaviour
         }
     }
 
+    public void Heal(int amount)
+    {
+        currentHp = Mathf.Min(maxHp, currentHp + amount);
+        UpdateHpBar();
+    }
+
     bool IsReviveInvulnerable()
     {
         return isReviveInvulnerable;
