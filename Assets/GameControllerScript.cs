@@ -151,6 +151,7 @@ public class GameControllerScript : MonoBehaviour
         isStarted = true;
         resultSavedThisRound = false;
         ResetDifficultyProgress();
+        ResetEmitters();
         SetUiState(GameUiState.Playing);
         ShowControlHint();
     }
@@ -240,6 +241,7 @@ public class GameControllerScript : MonoBehaviour
         ResetDifficultyProgress();
         UpdateScoreText();
         ClearDynamicObjects();
+        ResetEmitters();
         ResetPlayer();
         SetUiState(GameUiState.MainMenu);
     }
@@ -257,6 +259,15 @@ public class GameControllerScript : MonoBehaviour
         difficultyLevel = 1;
         spawnPausedUntilUnscaled = 0f;
         HideLevelBannerInstant();
+    }
+
+    void ResetEmitters()
+    {
+        EmitterScript[] emitters = FindObjectsOfType<EmitterScript>();
+        for (int i = 0; i < emitters.Length; i++)
+        {
+            emitters[i].ResetEmitterState();
+        }
     }
 
     void CheckLevelProgression()
