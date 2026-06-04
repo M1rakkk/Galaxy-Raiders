@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class EnemyScript : MonoBehaviour
     Rigidbody enemyShip;
     float speed;
     Vector3 lastPosition;
-    int damage = 1;
+    int damage = 10;
 
     // Start is called before the first frame update
     void Start()

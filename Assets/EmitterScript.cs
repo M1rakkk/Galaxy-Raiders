@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System;
 
@@ -8,6 +8,7 @@ public class EmitterScript : MonoBehaviour
     public GameObject enemyShip; //вражеский корабль
     public GameObject bossShip; //финальный босс
     public GameObject powerUp; //бонус
+    public GameObject healthPack; //аптечка
     public Text text; //текст
     public float minDelay, maxDelay; //границы задержки времени появления вражеских объектов
     public int minX, maxX, minZ, maxZ; //границы области появления бонусов
@@ -70,7 +71,18 @@ public class EmitterScript : MonoBehaviour
         //Условие появления бонуса
         if (Time.time > nextAppearTime)
         {
-            Instantiate(powerUp, new Vector3(UnityEngine.Random.Range(minX, maxX), 0, UnityEngine.Random.Range(minZ, maxZ)), Quaternion.identity);
+            Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(minX, maxX), 0, UnityEngine.Random.Range(minZ, maxZ));
+            
+            // 30% шанс на аптечку, если она назначена, иначе всегда щит
+            if (healthPack != null && UnityEngine.Random.value < 0.3f)
+            {
+                Instantiate(healthPack, spawnPos, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(powerUp, spawnPos, Quaternion.identity);
+            }
+            
             nextAppearTime = Time.time + delayTime;
         }
         // else
