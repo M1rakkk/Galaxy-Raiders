@@ -20,9 +20,12 @@ public class GameControllerScript : MonoBehaviour
     static readonly Vector2 MainTitleSize = new Vector2(560f, 80f);
     static readonly Vector2 MainLogoPosition = new Vector2(0f, -36f);
     static readonly Vector2 MainLogoSize = new Vector2(520f, 346.6667f);
+    static readonly Vector2 MainPlayButtonPosition = new Vector2(0f, -176.8f);
+    static readonly Vector2 MainPlayButtonSize = new Vector2(340f, 58f);
+    static readonly Vector2 MainPlayButtonImageSize = new Vector2(428.145f, 285.43f);
     static readonly Vector2 PlayButtonPosition = new Vector2(0f, -145f);
     static readonly Vector2 PlayButtonSize = new Vector2(300f, 58f);
-    static readonly Vector2 VolumeGroupPosition = new Vector2(0f, -225f);
+    static readonly Vector2 VolumeGroupPosition = new Vector2(0f, -250f);
     static readonly Vector2 VolumeGroupSize = new Vector2(300f, 70f);
     static readonly Vector2 VolumeLabelPosition = new Vector2(0f, 15f);
     static readonly Vector2 VolumeLabelSize = new Vector2(300f, 22f);
@@ -481,9 +484,7 @@ public class GameControllerScript : MonoBehaviour
 
         if (startButton != null)
         {
-            SetCenteredRect(startButton.GetComponent<RectTransform>(), PlayButtonPosition, PlayButtonSize);
-            StyleButton(startButton, PlayButtonSize, 28);
-            SetButtonLabel(startButton, "PLAY");
+            StyleMainPlayButton(startButton);
         }
 
         StyleVolumeControl();
@@ -645,6 +646,73 @@ public class GameControllerScript : MonoBehaviour
         logoImage.type = Image.Type.Simple;
         logoImage.preserveAspect = true;
         logoImage.raycastTarget = false;
+    }
+
+    void StyleMainPlayButton(Button button)
+    {
+        if (button == null)
+        {
+            return;
+        }
+
+        RectTransform rectTransform = button.GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            SetCenteredRect(rectTransform, MainPlayButtonPosition, MainPlayButtonSize);
+            rectTransform.localScale = Vector3.one;
+        }
+
+        Image hitboxImage = button.GetComponent<Image>();
+        if (hitboxImage == null)
+        {
+            hitboxImage = button.gameObject.AddComponent<Image>();
+        }
+
+        Transform imageTransform = button.transform.Find("ButtonImage");
+        Image image = imageTransform != null ? imageTransform.GetComponent<Image>() : null;
+        if (image == null)
+        {
+            image = hitboxImage;
+        }
+
+        if (image == null)
+        {
+            image = button.gameObject.AddComponent<Image>();
+        }
+
+        RectTransform imageTransformRect = image.GetComponent<RectTransform>();
+        if (imageTransformRect != null && image.transform != button.transform)
+        {
+            SetCenteredRect(imageTransformRect, Vector2.zero, MainPlayButtonImageSize);
+        }
+
+        image.type = Image.Type.Simple;
+        image.color = Color.white;
+        image.preserveAspect = true;
+        image.raycastTarget = image == hitboxImage;
+
+        if (image != hitboxImage)
+        {
+            hitboxImage.type = Image.Type.Simple;
+            hitboxImage.sprite = null;
+            hitboxImage.color = new Color(1f, 1f, 1f, 0f);
+            hitboxImage.preserveAspect = true;
+            hitboxImage.raycastTarget = true;
+        }
+
+        button.transition = Selectable.Transition.SpriteSwap;
+        button.targetGraphic = image;
+
+        Text text = button.GetComponentInChildren<Text>(true);
+        if (text != null)
+        {
+            text.gameObject.SetActive(false);
+        }
+
+        if (button.GetComponent<ButtonPressScaleEffect>() == null)
+        {
+            button.gameObject.AddComponent<ButtonPressScaleEffect>();
+        }
     }
 
     void StyleButton(Button button, Vector2 size, int fontSize)
@@ -1013,6 +1081,15 @@ public class GameControllerScript : MonoBehaviour
             }
             levelBannerText.gameObject.SetActive(false);
             AddTextShadow(levelBannerText, new Color(0f, 0f, 0f, 0.75f), new Vector2(3f, -3f));
+        }
+
+        if (volumeSlider == null && menu != null)
+        {
+            Transform existingSlider = menu.transform.Find("VolumeControl/VolumeSlider");
+            if (existingSlider != null)
+            {
+                volumeSlider = existingSlider.GetComponent<Slider>();
+            }
         }
 
         if (volumeSlider == null && menu != null)
