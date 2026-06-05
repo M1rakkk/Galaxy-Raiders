@@ -32,6 +32,11 @@ public class AsteroidScript : MonoBehaviour
         Destroy(gameObject);  
         GameObject explosion = Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
         explosion.transform.localScale *= size;
+
+        if (other.GetComponent<BossScript>() != null)
+        {
+            return;
+        }
         
         if (other.tag == "Enemy" || other.tag == "LazerShot" || other.tag == "LazerEnemyShot")
         {

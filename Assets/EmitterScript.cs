@@ -18,6 +18,13 @@ public class EmitterScript : MonoBehaviour
     int choice; //выбор вражеского объекта
     bool bossSpawned = false;
 
+    public void ResetEmitterState()
+    {
+        bossSpawned = false;
+        nextLaunchTime = Time.time + UnityEngine.Random.Range(minDelay, maxDelay);
+        nextAppearTime = Time.time + delayTime;
+    }
+
     // Update is called once per frame
     void Update()
     {
