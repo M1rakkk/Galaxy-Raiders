@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameControllerScript : MonoBehaviour
 {
     const int ReviveCost = 10;
-    const int MaxStoredResults = 10;
+    const int MaxStoredResults = 5;
     const float ControlHintDuration = 5f;
     const string VolumePrefsKey = "GalaxyRaiders.Volume";
     const string ResultsPrefsKey = "GalaxyRaiders.Results";
@@ -25,6 +25,14 @@ public class GameControllerScript : MonoBehaviour
     static readonly Vector2 PauseTitlePosition = new Vector2(0f, 86f);
     static readonly Vector2 PauseTitleSize = new Vector2(360f, 62f);
     static readonly Vector2 PauseButtonSize = new Vector2(270f, 54f);
+    static readonly Vector2 VictoryWindowSize = new Vector2(470f, 380f);
+    static readonly Vector2 VictoryTitlePosition = new Vector2(0f, 142f);
+    static readonly Vector2 VictoryTitleSize = new Vector2(390f, 64f);
+    static readonly Vector2 VictoryScorePosition = new Vector2(0f, 93f);
+    static readonly Vector2 VictoryScoreSize = new Vector2(360f, 38f);
+    static readonly Vector2 VictoryResultsPosition = new Vector2(0f, -2f);
+    static readonly Vector2 VictoryResultsSize = new Vector2(360f, 150f);
+    static readonly Vector2 VictoryButtonPosition = new Vector2(0f, -120f);
     static readonly Vector2 MainTitlePosition = new Vector2(0f, 165f);
     static readonly Vector2 MainTitleSize = new Vector2(560f, 80f);
     static readonly Vector2 MainLogoPosition = new Vector2(0f, -36f);
@@ -233,15 +241,15 @@ public class GameControllerScript : MonoBehaviour
             victoryScoreText.text = "Score: " + score;
         }
 
-        if (previousResultsText != null)
-        {
-            previousResultsText.text = FormatResults(LoadResults());
-        }
-
         if (!resultSavedThisRound)
         {
             SaveResult(score);
             resultSavedThisRound = true;
+        }
+
+        if (previousResultsText != null)
+        {
+            previousResultsText.text = FormatResults(LoadResults());
         }
 
         SetUiState(GameUiState.Victory);
@@ -415,6 +423,7 @@ public class GameControllerScript : MonoBehaviour
         StyleMainMenu();
         StylePauseMenu();
         StyleGameOverMenu();
+        StyleVictoryMenu();
         StyleControlHint();
     }
 
@@ -676,6 +685,263 @@ public class GameControllerScript : MonoBehaviour
         AddTextShadow(title, new Color(0f, 0.32f, 0.58f, 0.9f), new Vector2(2f, -2f));
         AddTextOutline(title, new Color(0.45f, 0.86f, 1f, 0.48f), new Vector2(1.2f, -1.2f));
         title.transform.SetAsLastSibling();
+    }
+
+    void StyleVictoryMenu()
+    {
+        if (victoryPanel == null)
+        {
+            return;
+        }
+
+        RectTransform panelRect = victoryPanel.GetComponent<RectTransform>();
+        if (panelRect != null)
+        {
+            StretchToParent(panelRect);
+        }
+
+        Image overlayImage = victoryPanel.GetComponent<Image>();
+        if (overlayImage == null)
+        {
+            overlayImage = victoryPanel.AddComponent<Image>();
+        }
+
+        overlayImage.sprite = null;
+        overlayImage.type = Image.Type.Simple;
+        overlayImage.color = PauseOverlayColor;
+        overlayImage.raycastTarget = true;
+
+        Transform windowTransform = victoryPanel.transform.Find("VictoryWindow");
+        if (windowTransform == null)
+        {
+            windowTransform = CreateUiObject("VictoryWindow", victoryPanel.transform).transform;
+        }
+
+        RectTransform windowRect = windowTransform.GetComponent<RectTransform>();
+        if (windowRect != null)
+        {
+            SetCenteredRect(windowRect, Vector2.zero, VictoryWindowSize);
+        }
+
+        Image windowImage = windowTransform.GetComponent<Image>();
+        if (windowImage == null)
+        {
+            windowImage = windowTransform.gameObject.AddComponent<Image>();
+        }
+
+        windowImage.sprite = null;
+        windowImage.type = Image.Type.Simple;
+        windowImage.color = PausePanelColor;
+        windowImage.raycastTarget = true;
+
+        if (victoryScoreText == null)
+        {
+            Transform scoreTransform = victoryPanel.transform.Find("VictoryScoreText");
+            if (scoreTransform == null)
+            {
+                scoreTransform = windowTransform.Find("VictoryScoreText");
+            }
+            if (scoreTransform != null)
+            {
+                victoryScoreText = scoreTransform.GetComponent<Text>();
+            }
+        }
+
+        if (previousResultsText == null)
+        {
+            Transform resultsTransform = victoryPanel.transform.Find("PreviousResultsText");
+            if (resultsTransform == null)
+            {
+                resultsTransform = windowTransform.Find("PreviousResultsText");
+            }
+            if (resultsTransform != null)
+            {
+                previousResultsText = resultsTransform.GetComponent<Text>();
+            }
+        }
+
+        if (victoryMainMenuButton == null)
+        {
+            Transform mainMenuTransform = victoryPanel.transform.Find("VictoryMainMenuButton");
+            if (mainMenuTransform == null)
+            {
+                mainMenuTransform = windowTransform.Find("VictoryMainMenuButton");
+            }
+            if (mainMenuTransform != null)
+            {
+                victoryMainMenuButton = mainMenuTransform.GetComponent<Button>();
+            }
+        }
+
+        MoveVictoryChildrenIntoWindow(windowTransform);
+        StyleVictoryWindowDecor(windowTransform);
+        StyleVictoryTitle(windowTransform);
+        StyleVictoryScore(windowTransform);
+        StyleVictoryResults(windowTransform);
+
+        if (victoryMainMenuButton == null)
+        {
+            Transform mainMenuTransform = windowTransform.Find("VictoryMainMenuButton");
+            if (mainMenuTransform != null)
+            {
+                victoryMainMenuButton = mainMenuTransform.GetComponent<Button>();
+            }
+        }
+
+        StylePauseButton(victoryMainMenuButton, "MAIN MENU", VictoryButtonPosition.y);
+    }
+
+    void MoveVictoryChildrenIntoWindow(Transform windowTransform)
+    {
+        if (windowTransform == null)
+        {
+            return;
+        }
+
+        Transform titleTransform = victoryPanel.transform.Find("VICTORYText");
+        if (titleTransform != null && titleTransform.parent != windowTransform)
+        {
+            titleTransform.SetParent(windowTransform, false);
+        }
+
+        if (victoryScoreText != null && victoryScoreText.transform.parent != windowTransform)
+        {
+            victoryScoreText.transform.SetParent(windowTransform, false);
+        }
+
+        if (previousResultsText != null && previousResultsText.transform.parent != windowTransform)
+        {
+            previousResultsText.transform.SetParent(windowTransform, false);
+        }
+
+        if (victoryMainMenuButton != null && victoryMainMenuButton.transform.parent != windowTransform)
+        {
+            victoryMainMenuButton.transform.SetParent(windowTransform, false);
+        }
+    }
+
+    void StyleVictoryWindowDecor(Transform windowTransform)
+    {
+        if (windowTransform == null)
+        {
+            return;
+        }
+
+        ConfigureDecorImage(windowTransform, "PanelGlow", Vector2.zero, new Vector2(510f, 420f), new Color(0.12f, 0.56f, 1f, 0.08f), true);
+        ConfigureDecorImage(windowTransform, "PanelTopGlow", new Vector2(0f, 190f), new Vector2(430f, 6f), PauseGlowColor, false);
+        ConfigureDecorImage(windowTransform, "PanelBottomGlow", new Vector2(0f, -190f), new Vector2(430f, 6f), PauseGlowColor, false);
+        ConfigureDecorImage(windowTransform, "PanelTopLine", new Vector2(0f, 189f), new Vector2(432f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelBottomLine", new Vector2(0f, -189f), new Vector2(432f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelLeftLine", new Vector2(-234f, 0f), new Vector2(2f, 305f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelRightLine", new Vector2(234f, 0f), new Vector2(2f, 305f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelTopAccent", new Vector2(0f, 166f), new Vector2(260f, 2f), new Color(0.84f, 0.97f, 1f, 0.42f), false);
+        ConfigureDecorImage(windowTransform, "PanelBottomAccent", new Vector2(0f, -166f), new Vector2(260f, 2f), new Color(0.84f, 0.97f, 1f, 0.3f), false);
+        ConfigureDecorImage(windowTransform, "PanelLeftCornerTop", new Vector2(-198f, 177f), new Vector2(58f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelRightCornerTop", new Vector2(198f, 177f), new Vector2(58f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelLeftCornerBottom", new Vector2(-198f, -177f), new Vector2(58f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelRightCornerBottom", new Vector2(198f, -177f), new Vector2(58f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "ResultsGlow", VictoryResultsPosition, new Vector2(386f, 168f), new Color(0.1f, 0.46f, 0.85f, 0.07f), false);
+        ConfigureDecorImage(windowTransform, "ResultsPanel", VictoryResultsPosition, new Vector2(370f, 154f), new Color(0.01f, 0.04f, 0.09f, 0.42f), false);
+        ConfigureDecorImage(windowTransform, "ResultsTopLine", new Vector2(0f, 70f), new Vector2(330f, 1.5f), new Color(0.45f, 0.88f, 1f, 0.55f), false);
+        ConfigureDecorImage(windowTransform, "ResultsBottomLine", new Vector2(0f, -71f), new Vector2(330f, 1.5f), new Color(0.45f, 0.88f, 1f, 0.36f), false);
+    }
+
+    void StyleVictoryTitle(Transform windowTransform)
+    {
+        if (windowTransform == null)
+        {
+            return;
+        }
+
+        Transform titleTransform = windowTransform.Find("VictoryTitle");
+        if (titleTransform == null)
+        {
+            titleTransform = windowTransform.Find("VICTORYText");
+        }
+
+        Text title = titleTransform != null ? titleTransform.GetComponent<Text>() : null;
+        if (title == null)
+        {
+            title = CreateText(windowTransform, "VictoryTitle", "VICTORY", 48, VictoryTitleSize, VictoryTitlePosition);
+        }
+
+        RectTransform titleRect = title.GetComponent<RectTransform>();
+        if (titleRect != null)
+        {
+            SetCenteredRect(titleRect, VictoryTitlePosition, VictoryTitleSize);
+        }
+
+        title.gameObject.SetActive(true);
+        title.text = "VICTORY";
+        title.fontSize = 48;
+        title.fontStyle = FontStyle.Bold;
+        title.alignment = TextAnchor.MiddleCenter;
+        title.horizontalOverflow = HorizontalWrapMode.Overflow;
+        title.verticalOverflow = VerticalWrapMode.Overflow;
+        title.color = new Color(0.96f, 0.99f, 1f, 1f);
+        AddTextShadow(title, new Color(0f, 0.34f, 0.62f, 0.9f), new Vector2(2f, -2f));
+        AddTextOutline(title, new Color(0.45f, 0.9f, 1f, 0.5f), new Vector2(1.2f, -1.2f));
+        title.transform.SetAsLastSibling();
+    }
+
+    void StyleVictoryScore(Transform windowTransform)
+    {
+        if (victoryScoreText == null && windowTransform != null)
+        {
+            victoryScoreText = CreateText(windowTransform, "VictoryScoreText", "Score: 0", 24, VictoryScoreSize, VictoryScorePosition);
+        }
+
+        if (victoryScoreText == null)
+        {
+            return;
+        }
+
+        RectTransform scoreRect = victoryScoreText.GetComponent<RectTransform>();
+        if (scoreRect != null)
+        {
+            SetCenteredRect(scoreRect, VictoryScorePosition, VictoryScoreSize);
+        }
+
+        victoryScoreText.fontSize = 24;
+        victoryScoreText.fontStyle = FontStyle.Bold;
+        victoryScoreText.alignment = TextAnchor.MiddleCenter;
+        victoryScoreText.horizontalOverflow = HorizontalWrapMode.Overflow;
+        victoryScoreText.verticalOverflow = VerticalWrapMode.Overflow;
+        victoryScoreText.color = new Color(0.86f, 0.94f, 1f, 0.96f);
+        victoryScoreText.raycastTarget = false;
+        AddTextShadow(victoryScoreText, new Color(0f, 0.16f, 0.32f, 0.85f), new Vector2(1.5f, -1.5f));
+        AddTextOutline(victoryScoreText, new Color(0.34f, 0.74f, 1f, 0.28f), new Vector2(1f, -1f));
+        victoryScoreText.transform.SetAsLastSibling();
+    }
+
+    void StyleVictoryResults(Transform windowTransform)
+    {
+        if (previousResultsText == null && windowTransform != null)
+        {
+            previousResultsText = CreateText(windowTransform, "PreviousResultsText", "Previous results:", 18, VictoryResultsSize, VictoryResultsPosition);
+        }
+
+        if (previousResultsText == null)
+        {
+            return;
+        }
+
+        RectTransform resultsRect = previousResultsText.GetComponent<RectTransform>();
+        if (resultsRect != null)
+        {
+            SetCenteredRect(resultsRect, VictoryResultsPosition, VictoryResultsSize);
+        }
+
+        previousResultsText.fontSize = 18;
+        previousResultsText.fontStyle = FontStyle.Normal;
+        previousResultsText.alignment = TextAnchor.MiddleCenter;
+        previousResultsText.horizontalOverflow = HorizontalWrapMode.Overflow;
+        previousResultsText.verticalOverflow = VerticalWrapMode.Overflow;
+        previousResultsText.color = new Color(0.82f, 0.91f, 1f, 0.92f);
+        previousResultsText.raycastTarget = false;
+        AddTextShadow(previousResultsText, new Color(0f, 0.08f, 0.18f, 0.85f), new Vector2(1f, -1f));
+        AddTextOutline(previousResultsText, new Color(0.22f, 0.62f, 0.95f, 0.18f), new Vector2(0.8f, -0.8f));
+        previousResultsText.transform.SetAsLastSibling();
     }
 
     void StylePauseWindowDecor(Transform windowTransform)
@@ -1403,10 +1669,7 @@ public class GameControllerScript : MonoBehaviour
         results.Add(result);
         results.Sort((left, right) => right.CompareTo(left));
 
-        if (results.Count > MaxStoredResults)
-        {
-            results.RemoveRange(MaxStoredResults, results.Count - MaxStoredResults);
-        }
+        TrimStoredResults(results);
 
         string[] values = new string[results.Count];
         for (int i = 0; i < results.Count; i++)
@@ -1437,6 +1700,7 @@ public class GameControllerScript : MonoBehaviour
         }
 
         results.Sort((left, right) => right.CompareTo(left));
+        TrimStoredResults(results);
         return results;
     }
 
@@ -1448,7 +1712,8 @@ public class GameControllerScript : MonoBehaviour
         }
 
         StringBuilder builder = new StringBuilder("Previous results:");
-        for (int i = 0; i < results.Count; i++)
+        int visibleResults = Mathf.Min(results.Count, MaxStoredResults);
+        for (int i = 0; i < visibleResults; i++)
         {
             builder.AppendLine();
             builder.Append(i + 1);
@@ -1457,6 +1722,14 @@ public class GameControllerScript : MonoBehaviour
         }
 
         return builder.ToString();
+    }
+
+    void TrimStoredResults(List<int> results)
+    {
+        if (results.Count > MaxStoredResults)
+        {
+            results.RemoveRange(MaxStoredResults, results.Count - MaxStoredResults);
+        }
     }
 
     void ClearDynamicObjects()
@@ -1579,10 +1852,11 @@ public class GameControllerScript : MonoBehaviour
         if (victoryPanel == null)
         {
             victoryPanel = CreatePanel(canvas.transform, "VictoryPanel");
-            CreateTitle(victoryPanel.transform, "VICTORY", 175f);
-            victoryScoreText = CreateText(victoryPanel.transform, "VictoryScoreText", "Score: 0", 32, new Vector2(420f, 60f), new Vector2(0f, 105f));
-            previousResultsText = CreateText(victoryPanel.transform, "PreviousResultsText", "Previous results:", 24, new Vector2(420f, 180f), new Vector2(0f, -15f));
-            victoryMainMenuButton = CreateButton(victoryPanel.transform, "VictoryMainMenuButton", "MAIN MENU", -180f);
+            GameObject victoryWindow = CreateDialogWindow(victoryPanel.transform, "VictoryWindow");
+            CreateTitle(victoryWindow.transform, "VICTORY", VictoryTitlePosition.y);
+            victoryScoreText = CreateText(victoryWindow.transform, "VictoryScoreText", "Score: 0", 24, VictoryScoreSize, VictoryScorePosition);
+            previousResultsText = CreateText(victoryWindow.transform, "PreviousResultsText", "Previous results:", 18, VictoryResultsSize, VictoryResultsPosition);
+            victoryMainMenuButton = CreateButton(victoryWindow.transform, "VictoryMainMenuButton", "MAIN MENU", VictoryButtonPosition.y);
         }
 
         if (playerHpSlider == null)
