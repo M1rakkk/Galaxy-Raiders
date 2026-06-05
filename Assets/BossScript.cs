@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -20,6 +21,10 @@ public class BossScript : MonoBehaviour
 
     [Header("References")]
     public GameObject explosionPrefab;
+
+    [Header("Hit Feedback")]
+    [SerializeField] Color hitFlashColor = new Color(0.65f, 0.95f, 1f, 1f);
+    [SerializeField] float hitFlashDuration = 0.14f;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed        = 18f;   // Horizontal tracking speed
@@ -58,6 +63,14 @@ public class BossScript : MonoBehaviour
     // Phases
     int phase = 1;
 
+    // Hit feedback
+    SpriteRenderer[] spriteRenderers;
+    Color[] originalSpriteColors;
+    Renderer[] meshRenderers;
+    Color[] originalRendererColors;
+    bool[] rendererHasColor;
+    Coroutine hitFlashCoroutine;
+
     // Arena limits
     const float ArenaHalfX   = 32f;
     const float ArenaMinZ    = -68f;
@@ -73,6 +86,7 @@ public class BossScript : MonoBehaviour
         orbitDir        = Random.value > 0.5f ? 1f : -1f;
         fixedBossZ      = Mathf.Clamp(combatZ, ArenaMinZ + 12f, ArenaMaxZ - 8f);
         transform.position = new Vector3(transform.position.x, BossY, fixedBossZ);
+        CacheHitRenderers();
     }
 
     void Update()
@@ -105,7 +119,14 @@ public class BossScript : MonoBehaviour
         {
             Destroy(other.gameObject);
             hitsLeft--;
-            if (hitsLeft <= 0) DieAndWin();
+            if (hitsLeft <= 0)
+            {
+                DieAndWin();
+            }
+            else
+            {
+                PlayHitFlash();
+            }
             return;
         }
 
@@ -213,6 +234,170 @@ public class BossScript : MonoBehaviour
         }
 
         nextBurstTime = Time.time + cooldown;
+    }
+
+    // ── Hit feedback ──────────────────────────────────────────────────────
+
+    void CacheHitRenderers()
+    {
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        if (spriteRenderers != null && spriteRenderers.Length > 0)
+        {
+            originalSpriteColors = new Color[spriteRenderers.Length];
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                if (spriteRenderers[i] != null)
+                {
+                    originalSpriteColors[i] = spriteRenderers[i].color;
+                }
+            }
+        }
+
+        Renderer[] allRenderers = GetComponentsInChildren<Renderer>();
+        int meshRendererCount = 0;
+        for (int i = 0; i < allRenderers.Length; i++)
+        {
+            if (allRenderers[i] != null && !(allRenderers[i] is SpriteRenderer))
+            {
+                meshRendererCount++;
+            }
+        }
+
+        if (meshRendererCount == 0)
+        {
+            return;
+        }
+
+        meshRenderers = new Renderer[meshRendererCount];
+        originalRendererColors = new Color[meshRendererCount];
+        rendererHasColor = new bool[meshRendererCount];
+
+        int meshIndex = 0;
+        for (int i = 0; i < allRenderers.Length; i++)
+        {
+            Renderer currentRenderer = allRenderers[i];
+            if (currentRenderer == null || currentRenderer is SpriteRenderer)
+            {
+                continue;
+            }
+
+            meshRenderers[meshIndex] = currentRenderer;
+            Material material = currentRenderer.material;
+            if (material != null && material.HasProperty("_Color"))
+            {
+                originalRendererColors[meshIndex] = material.color;
+                rendererHasColor[meshIndex] = true;
+            }
+
+            meshIndex++;
+        }
+    }
+
+    void PlayHitFlash()
+    {
+        if (!HasHitRenderers())
+        {
+            CacheHitRenderers();
+        }
+
+        if (!HasHitRenderers())
+        {
+            return;
+        }
+
+        if (hitFlashCoroutine != null)
+        {
+            StopCoroutine(hitFlashCoroutine);
+        }
+
+        hitFlashCoroutine = StartCoroutine(HitFlashRoutine());
+    }
+
+    bool HasHitRenderers()
+    {
+        bool hasSprites = spriteRenderers != null && spriteRenderers.Length > 0;
+        bool hasMeshes = meshRenderers != null && meshRenderers.Length > 0;
+        return hasSprites || hasMeshes;
+    }
+
+    IEnumerator HitFlashRoutine()
+    {
+        SetSpriteColors(hitFlashColor);
+        yield return new WaitForSeconds(hitFlashDuration);
+        RestoreSpriteColors();
+        hitFlashCoroutine = null;
+    }
+
+    void SetSpriteColors(Color color)
+    {
+        if (spriteRenderers != null)
+        {
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                if (spriteRenderers[i] != null)
+                {
+                    spriteRenderers[i].color = color;
+                }
+            }
+        }
+
+        if (meshRenderers != null)
+        {
+            for (int i = 0; i < meshRenderers.Length; i++)
+            {
+                if (meshRenderers[i] == null ||
+                    rendererHasColor == null ||
+                    i >= rendererHasColor.Length ||
+                    !rendererHasColor[i])
+                {
+                    continue;
+                }
+
+                Material material = meshRenderers[i].material;
+                if (material != null && material.HasProperty("_Color"))
+                {
+                    material.color = color;
+                }
+            }
+        }
+    }
+
+    void RestoreSpriteColors()
+    {
+        if (spriteRenderers != null && originalSpriteColors != null)
+        {
+            int spriteCount = Mathf.Min(spriteRenderers.Length, originalSpriteColors.Length);
+            for (int i = 0; i < spriteCount; i++)
+            {
+                if (spriteRenderers[i] != null)
+                {
+                    spriteRenderers[i].color = originalSpriteColors[i];
+                }
+            }
+        }
+
+        if (meshRenderers == null || originalRendererColors == null)
+        {
+            return;
+        }
+
+        int rendererCount = Mathf.Min(meshRenderers.Length, originalRendererColors.Length);
+        for (int i = 0; i < rendererCount; i++)
+        {
+            if (meshRenderers[i] == null ||
+                rendererHasColor == null ||
+                i >= rendererHasColor.Length ||
+                !rendererHasColor[i])
+            {
+                continue;
+            }
+
+            Material material = meshRenderers[i].material;
+            if (material != null && material.HasProperty("_Color"))
+            {
+                material.color = originalRendererColors[i];
+            }
+        }
     }
 
     // ── Death ──────────────────────────────────────────────────────────────
