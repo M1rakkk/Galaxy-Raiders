@@ -25,12 +25,12 @@ public class GameControllerScript : MonoBehaviour
     static readonly Vector2 MainPlayButtonImageSize = new Vector2(428.145f, 285.43f);
     static readonly Vector2 PlayButtonPosition = new Vector2(0f, -145f);
     static readonly Vector2 PlayButtonSize = new Vector2(300f, 58f);
-    static readonly Vector2 VolumeGroupPosition = new Vector2(0f, -250f);
-    static readonly Vector2 VolumeGroupSize = new Vector2(300f, 70f);
-    static readonly Vector2 VolumeLabelPosition = new Vector2(0f, 15f);
-    static readonly Vector2 VolumeLabelSize = new Vector2(300f, 22f);
-    static readonly Vector2 VolumeSliderPosition = new Vector2(0f, -15f);
-    static readonly Vector2 VolumeSliderSize = new Vector2(270f, 26f);
+    static readonly Vector2 VolumeGroupPosition = new Vector2(0f, -295f);
+    static readonly Vector2 VolumeGroupSize = new Vector2(360f, 70f);
+    static readonly Vector2 VolumeLabelPosition = new Vector2(0f, 18f);
+    static readonly Vector2 VolumeLabelSize = new Vector2(220f, 22f);
+    static readonly Vector2 VolumeSliderPosition = new Vector2(0f, -12f);
+    static readonly Vector2 VolumeSliderSize = new Vector2(320f, 24f);
     static readonly Vector2 ControlHintPosition = new Vector2(0f, -84f);
     static readonly Vector2 ControlHintSize = new Vector2(420f, 42f);
 
@@ -514,25 +514,38 @@ public class GameControllerScript : MonoBehaviour
 
         if (label != null)
         {
-            StyleTitle(label, 16, VolumeLabelSize, VolumeLabelPosition);
+            StyleTitle(label, 15, VolumeLabelSize, VolumeLabelPosition);
+            label.text = "VOLUME";
+            label.color = new Color(1f, 1f, 1f, 0.9f);
         }
 
         Transform backgroundTransform = volumeSlider.transform.Find("Background");
         Image backgroundImage = backgroundTransform != null ? backgroundTransform.GetComponent<Image>() : null;
         if (backgroundImage != null)
         {
-            backgroundImage.color = new Color(0.08f, 0.12f, 0.2f, 0.95f);
+            backgroundImage.color = new Color(0.03f, 0.09f, 0.18f, 0.72f);
             RectTransform backgroundRect = backgroundImage.rectTransform;
             backgroundRect.anchorMin = new Vector2(0f, 0.5f);
             backgroundRect.anchorMax = new Vector2(1f, 0.5f);
-            backgroundRect.offsetMin = new Vector2(0f, -4f);
-            backgroundRect.offsetMax = new Vector2(0f, 4f);
+            backgroundRect.offsetMin = new Vector2(0f, -3f);
+            backgroundRect.offsetMax = new Vector2(0f, 3f);
+        }
+
+        Transform fillAreaTransform = volumeSlider.transform.Find("Fill Area");
+        RectTransform fillAreaRect = fillAreaTransform as RectTransform;
+        if (fillAreaRect != null)
+        {
+            fillAreaRect.anchorMin = new Vector2(0f, 0.5f);
+            fillAreaRect.anchorMax = new Vector2(1f, 0.5f);
+            fillAreaRect.offsetMin = new Vector2(11f, -3f);
+            fillAreaRect.offsetMax = new Vector2(-11f, 3f);
         }
 
         Image fillImage = volumeSlider.fillRect != null ? volumeSlider.fillRect.GetComponent<Image>() : null;
         if (fillImage != null)
         {
-            fillImage.color = new Color(0.45f, 0.75f, 1f, 1f);
+            fillImage.color = new Color(0.52f, 0.86f, 1f, 1f);
+            fillImage.raycastTarget = false;
             RectTransform fillRect = fillImage.rectTransform;
             fillRect.anchorMin = Vector2.zero;
             fillRect.anchorMax = Vector2.one;
@@ -540,11 +553,22 @@ public class GameControllerScript : MonoBehaviour
             fillRect.offsetMax = Vector2.zero;
         }
 
+        Transform handleAreaTransform = volumeSlider.transform.Find("Handle Slide Area");
+        RectTransform handleAreaRect = handleAreaTransform as RectTransform;
+        if (handleAreaRect != null)
+        {
+            handleAreaRect.anchorMin = Vector2.zero;
+            handleAreaRect.anchorMax = Vector2.one;
+            handleAreaRect.offsetMin = new Vector2(11f, 0f);
+            handleAreaRect.offsetMax = new Vector2(-11f, 0f);
+        }
+
         Image handleImage = volumeSlider.handleRect != null ? volumeSlider.handleRect.GetComponent<Image>() : null;
         if (handleImage != null)
         {
-            handleImage.color = new Color(1f, 1f, 1f, 0.08f);
-            handleImage.rectTransform.sizeDelta = new Vector2(28f, 28f);
+            handleImage.color = new Color(1f, 1f, 1f, 0f);
+            handleImage.raycastTarget = true;
+            handleImage.rectTransform.sizeDelta = new Vector2(22f, 22f);
         }
 
         StyleSliderHandle(volumeSlider);
@@ -581,14 +605,14 @@ public class GameControllerScript : MonoBehaviour
         Text starText = slider.handleRect.GetComponentInChildren<Text>();
         if (starText == null)
         {
-            starText = CreateText(slider.handleRect, "Star", "★", 26, Vector2.zero, Vector2.zero);
+            starText = CreateText(slider.handleRect, "Star", "★", 22, Vector2.zero, Vector2.zero);
             StretchToParent(starText.rectTransform);
         }
 
         starText.text = "★";
-        starText.fontSize = 26;
+        starText.fontSize = 22;
         starText.alignment = TextAnchor.MiddleCenter;
-        starText.color = new Color(0.88f, 0.9f, 0.94f, 1f);
+        starText.color = new Color(0.9f, 0.96f, 1f, 1f);
         starText.raycastTarget = false;
         AddTextShadow(starText, new Color(0f, 0f, 0f, 0.3f), new Vector2(1f, -1f));
         slider.targetGraphic = starText;
@@ -1208,7 +1232,8 @@ public class GameControllerScript : MonoBehaviour
         RectTransform groupTransform = group.GetComponent<RectTransform>();
         SetCenteredRect(groupTransform, VolumeGroupPosition, VolumeGroupSize);
 
-        CreateText(group.transform, "VolumeLabel", "VOLUME", 16, VolumeLabelSize, VolumeLabelPosition);
+        Text label = CreateText(group.transform, "VolumeLabel", "VOLUME", 15, VolumeLabelSize, VolumeLabelPosition);
+        label.color = new Color(1f, 1f, 1f, 0.9f);
 
         GameObject sliderObject = CreateUiObject("VolumeSlider", group.transform);
         RectTransform sliderTransform = sliderObject.GetComponent<RectTransform>();
@@ -1219,30 +1244,30 @@ public class GameControllerScript : MonoBehaviour
         slider.maxValue = 1f;
         slider.wholeNumbers = false;
 
-        Image background = CreateImage(sliderObject.transform, "Background", new Color(0.08f, 0.12f, 0.2f, 0.95f));
+        Image background = CreateImage(sliderObject.transform, "Background", new Color(0.03f, 0.09f, 0.18f, 0.72f));
         RectTransform backgroundRect = background.rectTransform;
         backgroundRect.anchorMin = new Vector2(0f, 0.5f);
         backgroundRect.anchorMax = new Vector2(1f, 0.5f);
-        backgroundRect.offsetMin = new Vector2(0f, -4f);
-        backgroundRect.offsetMax = new Vector2(0f, 4f);
+        backgroundRect.offsetMin = new Vector2(0f, -3f);
+        backgroundRect.offsetMax = new Vector2(0f, 3f);
 
         RectTransform fillArea = CreateUiObject("Fill Area", sliderObject.transform).GetComponent<RectTransform>();
         fillArea.anchorMin = new Vector2(0f, 0.5f);
         fillArea.anchorMax = new Vector2(1f, 0.5f);
-        fillArea.offsetMin = new Vector2(10f, 0f);
-        fillArea.offsetMax = new Vector2(-10f, 0f);
-        fillArea.sizeDelta = new Vector2(-20f, 8f);
+        fillArea.offsetMin = new Vector2(11f, -3f);
+        fillArea.offsetMax = new Vector2(-11f, 3f);
 
-        Image fill = CreateImage(fillArea, "Fill", new Color(0.45f, 0.72f, 1f, 1f));
+        Image fill = CreateImage(fillArea, "Fill", new Color(0.52f, 0.86f, 1f, 1f));
+        fill.raycastTarget = false;
         StretchToParent(fill.rectTransform);
 
         RectTransform handleArea = CreateUiObject("Handle Slide Area", sliderObject.transform).GetComponent<RectTransform>();
         StretchToParent(handleArea);
-        handleArea.offsetMin = new Vector2(10f, 0f);
-        handleArea.offsetMax = new Vector2(-10f, 0f);
+        handleArea.offsetMin = new Vector2(11f, 0f);
+        handleArea.offsetMax = new Vector2(-11f, 0f);
 
-        Image handle = CreateImage(handleArea, "Handle", Color.white);
-        handle.rectTransform.sizeDelta = new Vector2(28f, 28f);
+        Image handle = CreateImage(handleArea, "Handle", new Color(1f, 1f, 1f, 0f));
+        handle.rectTransform.sizeDelta = new Vector2(22f, 22f);
 
         slider.fillRect = fill.rectTransform;
         slider.handleRect = handle.rectTransform;
