@@ -18,6 +18,8 @@ public class GameControllerScript : MonoBehaviour
     static readonly Color ButtonPressedColor = new Color(0.08f, 0.14f, 0.24f, 1f);
     static readonly Vector2 MainTitlePosition = new Vector2(0f, 165f);
     static readonly Vector2 MainTitleSize = new Vector2(560f, 80f);
+    static readonly Vector2 MainLogoPosition = new Vector2(0f, -36f);
+    static readonly Vector2 MainLogoSize = new Vector2(520f, 346.6667f);
     static readonly Vector2 PlayButtonPosition = new Vector2(0f, -145f);
     static readonly Vector2 PlayButtonSize = new Vector2(300f, 58f);
     static readonly Vector2 VolumeGroupPosition = new Vector2(0f, -225f);
@@ -35,6 +37,7 @@ public class GameControllerScript : MonoBehaviour
     public Slider playerHpSlider;
 
     [Header("Main Menu")]
+    public Image mainLogoImage;
     public Text mainTitleText;
     public Slider volumeSlider;
     public Text controlHintText;
@@ -439,21 +442,42 @@ public class GameControllerScript : MonoBehaviour
             return;
         }
 
-        if (mainTitleText == null)
+        if (mainLogoImage == null)
         {
-            Transform titleTransform = menu.transform.Find("MainTitleText");
-            if (titleTransform != null)
+            Transform logoTransform = menu.transform.Find("MainLogoImage");
+            if (logoTransform != null)
             {
-                mainTitleText = titleTransform.GetComponent<Text>();
+                mainLogoImage = logoTransform.GetComponent<Image>();
             }
         }
 
-        if (mainTitleText == null)
+        if (mainLogoImage != null)
         {
-            mainTitleText = CreateText(menu.transform, "MainTitleText", "GALAXY RAIDERS", 46, MainTitleSize, MainTitlePosition);
+            StyleMainLogo(mainLogoImage);
+            if (mainTitleText != null)
+            {
+                mainTitleText.gameObject.SetActive(false);
+            }
         }
+        else
+        {
+            if (mainTitleText == null)
+            {
+                Transform titleTransform = menu.transform.Find("MainTitleText");
+                if (titleTransform != null)
+                {
+                    mainTitleText = titleTransform.GetComponent<Text>();
+                }
+            }
 
-        StyleTitle(mainTitleText, 46, MainTitleSize, MainTitlePosition);
+            if (mainTitleText == null)
+            {
+                mainTitleText = CreateText(menu.transform, "MainTitleText", "GALAXY RAIDERS", 46, MainTitleSize, MainTitlePosition);
+            }
+
+            mainTitleText.gameObject.SetActive(true);
+            StyleTitle(mainTitleText, 46, MainTitleSize, MainTitlePosition);
+        }
 
         if (startButton != null)
         {
@@ -602,6 +626,25 @@ public class GameControllerScript : MonoBehaviour
         text.horizontalOverflow = HorizontalWrapMode.Overflow;
         text.verticalOverflow = VerticalWrapMode.Overflow;
         AddTextShadow(text, new Color(0f, 0f, 0f, 0.65f), new Vector2(2f, -2f));
+    }
+
+    void StyleMainLogo(Image logoImage)
+    {
+        if (logoImage == null)
+        {
+            return;
+        }
+
+        RectTransform rectTransform = logoImage.GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            SetTopCenterRect(rectTransform, MainLogoPosition, MainLogoSize);
+        }
+
+        logoImage.color = Color.white;
+        logoImage.type = Image.Type.Simple;
+        logoImage.preserveAspect = true;
+        logoImage.raycastTarget = false;
     }
 
     void StyleButton(Button button, Vector2 size, int fontSize)
