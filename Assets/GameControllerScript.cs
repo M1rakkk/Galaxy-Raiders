@@ -16,6 +16,15 @@ public class GameControllerScript : MonoBehaviour
     static readonly Color ButtonNormalColor = new Color(0.13f, 0.2f, 0.33f, 0.96f);
     static readonly Color ButtonHighlightedColor = new Color(0.22f, 0.34f, 0.55f, 1f);
     static readonly Color ButtonPressedColor = new Color(0.08f, 0.14f, 0.24f, 1f);
+    static readonly Color PauseOverlayColor = new Color(0f, 0.015f, 0.055f, 0.68f);
+    static readonly Color PausePanelColor = new Color(0.018f, 0.055f, 0.12f, 0.84f);
+    static readonly Color PauseGlowColor = new Color(0.24f, 0.78f, 1f, 0.18f);
+    static readonly Color PauseLineColor = new Color(0.45f, 0.88f, 1f, 0.92f);
+    static readonly Color PauseTextColor = new Color(0.9f, 0.96f, 1f, 1f);
+    static readonly Vector2 PauseWindowSize = new Vector2(430f, 290f);
+    static readonly Vector2 PauseTitlePosition = new Vector2(0f, 86f);
+    static readonly Vector2 PauseTitleSize = new Vector2(360f, 62f);
+    static readonly Vector2 PauseButtonSize = new Vector2(270f, 54f);
     static readonly Vector2 MainTitlePosition = new Vector2(0f, 165f);
     static readonly Vector2 MainTitleSize = new Vector2(560f, 80f);
     static readonly Vector2 MainLogoPosition = new Vector2(0f, -36f);
@@ -404,12 +413,8 @@ public class GameControllerScript : MonoBehaviour
     {
         StyleScoreText();
         StyleMainMenu();
-        StyleOverlay(pausePanel);
-        StyleOverlay(gameOverPanel);
-        StyleButton(continueButton, new Vector2(300f, 58f), 26);
-        StyleButton(pauseMainMenuButton, new Vector2(300f, 58f), 26);
-        StyleButton(reviveButton, new Vector2(300f, 58f), 26);
-        StyleButton(gameOverMainMenuButton, new Vector2(300f, 58f), 26);
+        StylePauseMenu();
+        StyleGameOverMenu();
         StyleControlHint();
     }
 
@@ -488,6 +493,364 @@ public class GameControllerScript : MonoBehaviour
         }
 
         StyleVolumeControl();
+    }
+
+    void StylePauseMenu()
+    {
+        if (pausePanel == null)
+        {
+            return;
+        }
+
+        RectTransform panelRect = pausePanel.GetComponent<RectTransform>();
+        if (panelRect != null)
+        {
+            StretchToParent(panelRect);
+        }
+
+        Image overlayImage = pausePanel.GetComponent<Image>();
+        if (overlayImage == null)
+        {
+            overlayImage = pausePanel.AddComponent<Image>();
+        }
+
+        overlayImage.sprite = null;
+        overlayImage.type = Image.Type.Simple;
+        overlayImage.color = PauseOverlayColor;
+        overlayImage.raycastTarget = true;
+
+        Transform windowTransform = pausePanel.transform.Find("PauseWindow");
+        if (windowTransform == null)
+        {
+            windowTransform = CreateUiObject("PauseWindow", pausePanel.transform).transform;
+        }
+
+        RectTransform windowRect = windowTransform.GetComponent<RectTransform>();
+        if (windowRect != null)
+        {
+            SetCenteredRect(windowRect, Vector2.zero, PauseWindowSize);
+        }
+
+        Image windowImage = windowTransform.GetComponent<Image>();
+        if (windowImage == null)
+        {
+            windowImage = windowTransform.gameObject.AddComponent<Image>();
+        }
+
+        windowImage.sprite = null;
+        windowImage.type = Image.Type.Simple;
+        windowImage.color = PausePanelColor;
+        windowImage.raycastTarget = true;
+
+        StylePauseWindowDecor(windowTransform);
+        StylePauseTitle(windowTransform);
+
+        if (continueButton == null)
+        {
+            Transform continueTransform = windowTransform.Find("ContinueButton");
+            if (continueTransform != null)
+            {
+                continueButton = continueTransform.GetComponent<Button>();
+            }
+        }
+
+        if (pauseMainMenuButton == null)
+        {
+            Transform mainMenuTransform = windowTransform.Find("PauseMainMenuButton");
+            if (mainMenuTransform != null)
+            {
+                pauseMainMenuButton = mainMenuTransform.GetComponent<Button>();
+            }
+        }
+
+        StylePauseButton(continueButton, "CONTINUE", 0f);
+        StylePauseButton(pauseMainMenuButton, "MAIN MENU", -70f);
+    }
+
+    void StyleGameOverMenu()
+    {
+        if (gameOverPanel == null)
+        {
+            return;
+        }
+
+        RectTransform panelRect = gameOverPanel.GetComponent<RectTransform>();
+        if (panelRect != null)
+        {
+            StretchToParent(panelRect);
+        }
+
+        Image overlayImage = gameOverPanel.GetComponent<Image>();
+        if (overlayImage == null)
+        {
+            overlayImage = gameOverPanel.AddComponent<Image>();
+        }
+
+        overlayImage.sprite = null;
+        overlayImage.type = Image.Type.Simple;
+        overlayImage.color = PauseOverlayColor;
+        overlayImage.raycastTarget = true;
+
+        Transform windowTransform = gameOverPanel.transform.Find("GameOverWindow");
+        if (windowTransform == null)
+        {
+            windowTransform = CreateUiObject("GameOverWindow", gameOverPanel.transform).transform;
+        }
+
+        RectTransform windowRect = windowTransform.GetComponent<RectTransform>();
+        if (windowRect != null)
+        {
+            SetCenteredRect(windowRect, Vector2.zero, PauseWindowSize);
+        }
+
+        Image windowImage = windowTransform.GetComponent<Image>();
+        if (windowImage == null)
+        {
+            windowImage = windowTransform.gameObject.AddComponent<Image>();
+        }
+
+        windowImage.sprite = null;
+        windowImage.type = Image.Type.Simple;
+        windowImage.color = PausePanelColor;
+        windowImage.raycastTarget = true;
+
+        StylePauseWindowDecor(windowTransform);
+        StyleGameOverTitle(windowTransform);
+
+        if (reviveButton == null)
+        {
+            Transform reviveTransform = windowTransform.Find("ReviveButton");
+            if (reviveTransform != null)
+            {
+                reviveButton = reviveTransform.GetComponent<Button>();
+            }
+        }
+
+        if (gameOverMainMenuButton == null)
+        {
+            Transform mainMenuTransform = windowTransform.Find("GameOverMainMenuButton");
+            if (mainMenuTransform != null)
+            {
+                gameOverMainMenuButton = mainMenuTransform.GetComponent<Button>();
+            }
+        }
+
+        StylePauseButton(reviveButton, "REVIVE - " + ReviveCost, 0f);
+        StylePauseButton(gameOverMainMenuButton, "MAIN MENU", -70f);
+        ApplySciFiButtonState(reviveButton);
+    }
+
+    void StyleGameOverTitle(Transform windowTransform)
+    {
+        if (windowTransform == null)
+        {
+            return;
+        }
+
+        Transform titleTransform = windowTransform.Find("GameOverTitle");
+        if (titleTransform == null)
+        {
+            titleTransform = windowTransform.Find("GAME OVERText");
+        }
+
+        Text title = titleTransform != null ? titleTransform.GetComponent<Text>() : null;
+        if (title == null)
+        {
+            title = CreateText(windowTransform, "GameOverTitle", "GAME OVER", 44, PauseTitleSize, PauseTitlePosition);
+        }
+
+        RectTransform titleRect = title.GetComponent<RectTransform>();
+        if (titleRect != null)
+        {
+            SetCenteredRect(titleRect, PauseTitlePosition, PauseTitleSize);
+        }
+
+        title.gameObject.SetActive(true);
+        title.text = "GAME OVER";
+        title.fontSize = 46;
+        title.fontStyle = FontStyle.Bold;
+        title.alignment = TextAnchor.MiddleCenter;
+        title.horizontalOverflow = HorizontalWrapMode.Overflow;
+        title.verticalOverflow = VerticalWrapMode.Overflow;
+        title.color = new Color(0.96f, 0.98f, 1f, 1f);
+        AddTextShadow(title, new Color(0f, 0.32f, 0.58f, 0.9f), new Vector2(2f, -2f));
+        AddTextOutline(title, new Color(0.45f, 0.86f, 1f, 0.48f), new Vector2(1.2f, -1.2f));
+        title.transform.SetAsLastSibling();
+    }
+
+    void StylePauseWindowDecor(Transform windowTransform)
+    {
+        if (windowTransform == null)
+        {
+            return;
+        }
+
+        ConfigureDecorImage(windowTransform, "PanelGlow", Vector2.zero, new Vector2(470f, 330f), new Color(0.12f, 0.56f, 1f, 0.08f), true);
+        ConfigureDecorImage(windowTransform, "PanelTopGlow", new Vector2(0f, 145f), new Vector2(390f, 6f), PauseGlowColor, false);
+        ConfigureDecorImage(windowTransform, "PanelBottomGlow", new Vector2(0f, -145f), new Vector2(390f, 6f), PauseGlowColor, false);
+        ConfigureDecorImage(windowTransform, "PanelTopLine", new Vector2(0f, 144f), new Vector2(392f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelBottomLine", new Vector2(0f, -144f), new Vector2(392f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelLeftLine", new Vector2(-214f, 0f), new Vector2(2f, 232f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelRightLine", new Vector2(214f, 0f), new Vector2(2f, 232f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelTopAccent", new Vector2(0f, 121f), new Vector2(230f, 2f), new Color(0.84f, 0.97f, 1f, 0.42f), false);
+        ConfigureDecorImage(windowTransform, "PanelBottomAccent", new Vector2(0f, -121f), new Vector2(230f, 2f), new Color(0.84f, 0.97f, 1f, 0.3f), false);
+        ConfigureDecorImage(windowTransform, "PanelLeftCornerTop", new Vector2(-185f, 132f), new Vector2(54f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelRightCornerTop", new Vector2(185f, 132f), new Vector2(54f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelLeftCornerBottom", new Vector2(-185f, -132f), new Vector2(54f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(windowTransform, "PanelRightCornerBottom", new Vector2(185f, -132f), new Vector2(54f, 2f), PauseLineColor, false);
+    }
+
+    void StylePauseTitle(Transform windowTransform)
+    {
+        if (windowTransform == null)
+        {
+            return;
+        }
+
+        Transform titleTransform = windowTransform.Find("PauseTitle");
+        if (titleTransform == null)
+        {
+            titleTransform = windowTransform.Find("PAUSEText");
+        }
+
+        Text title = titleTransform != null ? titleTransform.GetComponent<Text>() : null;
+        if (title == null)
+        {
+            title = CreateText(windowTransform, "PauseTitle", "MISSION PAUSED", 40, PauseTitleSize, PauseTitlePosition);
+        }
+
+        RectTransform titleRect = title.GetComponent<RectTransform>();
+        if (titleRect != null)
+        {
+            SetCenteredRect(titleRect, PauseTitlePosition, PauseTitleSize);
+        }
+
+        title.gameObject.SetActive(true);
+        title.text = "MISSION PAUSED";
+        title.fontSize = 40;
+        title.fontStyle = FontStyle.Bold;
+        title.alignment = TextAnchor.MiddleCenter;
+        title.horizontalOverflow = HorizontalWrapMode.Overflow;
+        title.verticalOverflow = VerticalWrapMode.Overflow;
+        title.color = PauseTextColor;
+        AddTextShadow(title, new Color(0f, 0.35f, 0.62f, 0.9f), new Vector2(2f, -2f));
+        AddTextOutline(title, new Color(0.3f, 0.8f, 1f, 0.45f), new Vector2(1.2f, -1.2f));
+        title.transform.SetAsLastSibling();
+    }
+
+    void StylePauseButton(Button button, string label, float yPosition)
+    {
+        if (button == null)
+        {
+            return;
+        }
+
+        RectTransform buttonRect = button.GetComponent<RectTransform>();
+        if (buttonRect != null)
+        {
+            SetCenteredRect(buttonRect, new Vector2(0f, yPosition), PauseButtonSize);
+        }
+
+        Image buttonImage = button.GetComponent<Image>();
+        if (buttonImage == null)
+        {
+            buttonImage = button.gameObject.AddComponent<Image>();
+        }
+
+        buttonImage.sprite = null;
+        buttonImage.type = Image.Type.Simple;
+        buttonImage.color = new Color(0.02f, 0.09f, 0.22f, 0.96f);
+        buttonImage.raycastTarget = true;
+
+        ColorBlock colors = button.colors;
+        colors.normalColor = new Color(0.02f, 0.09f, 0.22f, 0.96f);
+        colors.highlightedColor = new Color(0.08f, 0.26f, 0.48f, 1f);
+        colors.pressedColor = new Color(0.01f, 0.06f, 0.16f, 1f);
+        colors.selectedColor = colors.highlightedColor;
+        colors.disabledColor = new Color(0.06f, 0.08f, 0.12f, 0.6f);
+        colors.colorMultiplier = 1f;
+        colors.fadeDuration = 0.08f;
+        button.colors = colors;
+        button.transition = Selectable.Transition.ColorTint;
+        button.targetGraphic = buttonImage;
+
+        ConfigureDecorImage(button.transform, "ButtonGlow", Vector2.zero, new Vector2(294f, 70f), new Color(0.12f, 0.55f, 1f, 0.1f), true);
+        ConfigureDecorImage(button.transform, "ButtonTopLine", new Vector2(0f, 26f), new Vector2(230f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(button.transform, "ButtonBottomLine", new Vector2(0f, -26f), new Vector2(230f, 2f), PauseLineColor, false);
+        ConfigureDecorImage(button.transform, "ButtonLeftLine", new Vector2(-134f, 0f), new Vector2(2f, 34f), PauseLineColor, false);
+        ConfigureDecorImage(button.transform, "ButtonRightLine", new Vector2(134f, 0f), new Vector2(2f, 34f), PauseLineColor, false);
+        ConfigureDecorImage(button.transform, "ButtonInnerShine", new Vector2(0f, 18f), new Vector2(190f, 1.5f), new Color(0.9f, 1f, 1f, 0.48f), false);
+
+        Text text = button.GetComponentInChildren<Text>(true);
+        if (text == null)
+        {
+            text = CreateText(button.transform, "Text", label, 22, Vector2.zero, Vector2.zero);
+            StretchToParent(text.rectTransform);
+        }
+
+        text.gameObject.SetActive(true);
+        text.text = label;
+        text.fontSize = 22;
+        text.fontStyle = FontStyle.Bold;
+        text.alignment = TextAnchor.MiddleCenter;
+        text.horizontalOverflow = HorizontalWrapMode.Overflow;
+        text.verticalOverflow = VerticalWrapMode.Overflow;
+        text.color = new Color(0.88f, 0.95f, 1f, 1f);
+        text.raycastTarget = false;
+        AddTextShadow(text, new Color(0f, 0f, 0f, 0.75f), new Vector2(2f, -2f));
+        AddTextOutline(text, new Color(0.36f, 0.76f, 1f, 0.36f), new Vector2(1f, -1f));
+        text.transform.SetAsLastSibling();
+
+        ApplySciFiButtonState(button);
+    }
+
+    void ApplySciFiButtonState(Button button)
+    {
+        if (button == null)
+        {
+            return;
+        }
+
+        bool isActive = button.interactable;
+        Color backgroundColor = isActive ? new Color(0.02f, 0.09f, 0.22f, 0.96f) : new Color(0.035f, 0.055f, 0.08f, 0.82f);
+        Color lineColor = isActive ? PauseLineColor : new Color(0.18f, 0.32f, 0.42f, 0.46f);
+        Color glowColor = isActive ? new Color(0.12f, 0.55f, 1f, 0.1f) : new Color(0.06f, 0.14f, 0.2f, 0.025f);
+        Color shineColor = isActive ? new Color(0.9f, 1f, 1f, 0.48f) : new Color(0.35f, 0.48f, 0.58f, 0.16f);
+        Color textColor = isActive ? new Color(0.88f, 0.95f, 1f, 1f) : new Color(0.48f, 0.58f, 0.66f, 0.84f);
+
+        Image buttonImage = button.GetComponent<Image>();
+        if (buttonImage != null)
+        {
+            buttonImage.color = backgroundColor;
+        }
+
+        SetDecorColor(button.transform, "ButtonGlow", glowColor);
+        SetDecorColor(button.transform, "ButtonTopLine", lineColor);
+        SetDecorColor(button.transform, "ButtonBottomLine", lineColor);
+        SetDecorColor(button.transform, "ButtonLeftLine", lineColor);
+        SetDecorColor(button.transform, "ButtonRightLine", lineColor);
+        SetDecorColor(button.transform, "ButtonInnerShine", shineColor);
+
+        Text text = button.GetComponentInChildren<Text>(true);
+        if (text != null)
+        {
+            text.color = textColor;
+        }
+    }
+
+    void SetDecorColor(Transform parent, string objectName, Color color)
+    {
+        if (parent == null)
+        {
+            return;
+        }
+
+        Transform child = parent.Find(objectName);
+        Image image = child != null ? child.GetComponent<Image>() : null;
+        if (image != null)
+        {
+            image.color = color;
+        }
     }
 
     void StyleVolumeControl()
@@ -818,6 +1181,65 @@ public class GameControllerScript : MonoBehaviour
         shadow.useGraphicAlpha = true;
     }
 
+    void AddTextOutline(Text text, Color color, Vector2 distance)
+    {
+        if (text == null)
+        {
+            return;
+        }
+
+        Outline outline = text.GetComponent<Outline>();
+        if (outline == null)
+        {
+            outline = text.gameObject.AddComponent<Outline>();
+        }
+
+        outline.effectColor = color;
+        outline.effectDistance = distance;
+        outline.useGraphicAlpha = true;
+    }
+
+    Image ConfigureDecorImage(Transform parent, string objectName, Vector2 position, Vector2 size, Color color, bool sendToBack)
+    {
+        if (parent == null)
+        {
+            return null;
+        }
+
+        Transform existing = parent.Find(objectName);
+        Image image;
+        if (existing == null)
+        {
+            image = CreateImage(parent, objectName, color);
+        }
+        else
+        {
+            image = existing.GetComponent<Image>();
+            if (image == null)
+            {
+                image = existing.gameObject.AddComponent<Image>();
+            }
+        }
+
+        RectTransform rectTransform = image.GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            SetCenteredRect(rectTransform, position, size);
+        }
+
+        image.sprite = null;
+        image.type = Image.Type.Simple;
+        image.color = color;
+        image.raycastTarget = false;
+
+        if (sendToBack)
+        {
+            image.transform.SetAsFirstSibling();
+        }
+
+        return image;
+    }
+
     void SetCenteredRect(RectTransform rectTransform, Vector2 position, Vector2 size)
     {
         if (rectTransform == null)
@@ -971,6 +1393,7 @@ public class GameControllerScript : MonoBehaviour
         if (reviveButton != null)
         {
             reviveButton.interactable = score >= ReviveCost && playerForRevive != null;
+            ApplySciFiButtonState(reviveButton);
         }
     }
 
